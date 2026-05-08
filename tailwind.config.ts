@@ -1,0 +1,9 @@
+// tailwind.config.ts
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',   // ← 이 줄 있어야 함
+  ],
+  // ...
+}
