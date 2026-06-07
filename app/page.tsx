@@ -644,8 +644,8 @@ function HeroSection() {
           {/* ★ 고대병원 마크 (alt 글씨 제거 및 정상 매칭) */}
           <motion.img 
             variants={item}
-            src="/hospital-mark.png
-            alt="" 
+            src="/hospital-mark.png"
+            alt=""
             className="ek-hero-university-mark"
           />
 
