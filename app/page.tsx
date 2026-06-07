@@ -772,6 +772,7 @@ function FloatingButtons() {
 }
 
 export default function Page() {
+  const [showPopup, setShowPopup] = useState(true);
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -786,6 +787,69 @@ export default function Page() {
         <Footer />
       </main>
       <FloatingButtons />
-    </>
+    </><AnimatePresence>
+        {showPopup && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 9999,
+              background: 'rgba(11, 31, 69, 0.75)',
+              backdropFilter: 'blur(8px)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 15 }}
+              style={{
+                background: '#ffffff', borderRadius: '16px',
+                width: '100%', maxWidth: '440px', padding: '32px',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.3)', position: 'relative',
+                textAlign: 'center'
+              }}
+            >
+              {/* 타이틀 로고 느낌 */}
+              <div style={{ color: '#60A5FA', fontSize: '11px', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '6px' }}>
+                SEOUL KOREA ENT
+              </div>
+              <div style={{ color: '#0B1F45', fontSize: '22px', fontWeight: 700, marginBottom: '20px' }}>
+                그랜드 오픈 안내
+              </div>
+
+              {/* 본문 안내 */}
+              <div style={{ color: '#334155', fontSize: '15px', lineHeight: 1.7, marginBottom: '28px', wordBreak: 'keep-all' }}>
+                안녕하세요, 서울고려이비인후과입니다.<br />
+                본원은 환자분들께 보다 정밀하고 쾌적한 의료 서비스를 제공해 드리기 위해 만반의 준비를 갖추고 있습니다.<br /><br />
+                
+                <div style={{ background: '#EFF6FF', padding: '16px', borderRadius: '12px', fontWeight: 600, color: '#1E62C8', fontSize: '16px' }}>
+                  🗓️ 2026년 12월 28일 (월) 오픈 예정
+                </div>
+                <br />
+                수면 전문의의 정밀한 진단과 따뜻한 진료로 대전 지역 주민분들의 건강을 책임지겠습니다. 많은 기대 부탁드립니다.
+              </div>
+
+              {/* 하단 닫기 버튼 */}
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <button 
+                  onClick={() => setShowPopup(false)}
+                  style={{
+                    background: '#3B82F6', color: '#fff', border: 'none',
+                    padding: '12px 32px', borderRadius: '8px', fontSize: '14px',
+                    fontWeight: 600, cursor: 'pointer', transition: 'background 0.2s',
+                    width: '100%'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#60A5FA'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#3B82F6'}
+                >
+                  확인 및 홈페이지 둘러보기
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
   )
 }
