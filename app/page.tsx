@@ -238,7 +238,7 @@ img { display: block; max-width: 100%; }
 .ek-feature-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
 .ek-feature-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-/* ━━━ 어지럼증 ━━━ */
+/* ── 어지럼증 ── */
 .ek-condition-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-bottom: 48px; }
 @media(min-width:768px){ .ek-condition-grid { grid-template-columns: repeat(3,1fr); } }
 .ek-condition-card {
@@ -267,7 +267,7 @@ img { display: block; max-width: 100%; }
 .ek-step-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
 .ek-step-box-title { font-size: 20px; font-weight: 600; color: #fff; text-align: center; margin-bottom: 32px; }
 
-/* ━━━ 고압산소 ━━━ */
+/* ── 고압산소 ── */
 .ek-hbot-layout { display: grid; grid-template-columns: 1fr; gap: 28px; }
 @media(min-width:640px){ .ek-hbot-layout { grid-template-columns: 1fr 2fr; } }
 .ek-principle-card {
@@ -299,7 +299,7 @@ img { display: block; max-width: 100%; }
 .ek-golden-title { font-size: 14px; font-weight: 600; color: #60A5FA; margin-bottom: 6px; }
 .ek-golden-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
-/* ━━━ 청능 클리닉 ━━━ */
+/* ── 청능 클리닉 ── */
 .ek-hearing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
 @media(min-width:1024px){ .ek-hearing-grid { grid-template-columns: repeat(3,1fr); } }
 .ek-hearing-card {
@@ -330,7 +330,7 @@ img { display: block; max-width: 100%; }
 .ek-subsidy-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 6px; word-break: keep-all; }
 .ek-subsidy-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; }
 
-/* ━━━ 의료진 ━━━ */
+/* ── 의료진 ── */
 .ek-doctor-layout { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
 @media(min-width:1024px){ .ek-doctor-layout { grid-template-columns: 2fr 3fr; gap: 40px; } }
 .ek-photo-placeholder {
@@ -376,7 +376,7 @@ img { display: block; max-width: 100%; }
 .ek-philosophy-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
 .ek-philosophy-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-/* ━━━ 푸터 ━━━ */
+/* ── 푸터 ── */
 .ek-footer-cta {
   padding: 56px 0;
   display: flex; flex-direction: column; gap: 32px;
@@ -464,10 +464,10 @@ const PHONE = '042-000-0000'   // ← 실제 번호로 교체
 const KAKAO = 'https://open.kakao.com/'  // ← 실제 오픈채팅 URL로 교체
 
 const NAV = [
-  { label: '수면 클리닉',  href: '#sleep'     },
-  { label: '어지럼증',     href: '#dizziness' },
+  { label: '수면 클리닉',   href: '#sleep'     },
+  { label: '어지럼증',      href: '#dizziness' },
   { label: '고압산소치료', href: '#hbot'      },
-  { label: '청능 클리닉',  href: '#hearing'   },
+  { label: '청능 클리닉',   href: '#hearing'   },
   { label: '의료진',       href: '#doctor'    },
   { label: '오시는 길',    href: '#footer'    },
 ]
@@ -477,8 +477,8 @@ const CARDS = [
   { icon: '🌀', title: '어지럼증 클리닉', sub: '전정기능 정밀검사',   href: '#dizziness' },
   { icon: '💠', title: '고압산소치료',   sub: '최신 챔버 운영',      href: '#hbot'      },
   { icon: '👂', title: '난청 · 이명',    sub: '정밀 청력 검사',      href: '#hearing'   },
-  { icon: '🎧', title: '보청기',         sub: '전문가 자격증 보유',   href: '#hearing'   },
-  { icon: '⭐', title: '이비인후과',     sub: '전문의 직접 진료',     href: '#doctor'    },
+  { icon: '🎧', title: '보청기',          sub: '전문가 자격증 보유',   href: '#hearing'   },
+  { icon: '⭐', title: '이비인후과',      sub: '전문의 직접 진료',     href: '#doctor'    },
 ]
 
 const SLEEP_FEATURES = [
@@ -492,8 +492,8 @@ const SLEEP_FEATURES = [
 
 const CONDITIONS = [
   { icon: '⟳', name: '이석증 (BPPV)',  desc: '이석치환술(Epley법)로 단기간에 증상 해소' },
-  { icon: '◎', name: '메니에르병',     desc: '저염식이·이뇨제·내림프낭 수술 등 단계별 치료' },
-  { icon: '⟲', name: '전정신경염',     desc: '스테로이드 치료 및 전정재활 운동' },
+  { icon: '◎', name: '메니에르병',      desc: '저염식이·이뇨제·내림프낭 수술 등 단계별 치료' },
+  { icon: '⟲', name: '전정신경염',      desc: '스테로이드 치료 및 전정재활 운동' },
   { icon: '✦', name: '중추성 어지럼증', desc: '영상검사 협진으로 신속한 원인 감별' },
   { icon: '◈', name: '청성 어지럼증',  desc: '청력 검사 병행으로 달팽이관·전정 동시 평가' },
   { icon: '◉', name: '만성 어지럼증',  desc: '전정재활치료(VRT) 프로그램 운영' },
@@ -502,7 +502,7 @@ const CONDITIONS = [
 const STEPS = [
   { step: '01', title: '초진 문진',      desc: '발생 양상·동반 증상·과거력 청취' },
   { step: '02', title: '비디오 안진검사', desc: '눈 움직임으로 이석증·전정신경염 감별' },
-  { step: '03', title: '전정기능검사',   desc: '온도안진검사로 좌우 전정 기능 비교' },
+  { step: '03', title: '전정기능검사',    desc: '온도안진검사로 좌우 전정 기능 비교' },
   { step: '04', title: '맞춤 치료',      desc: '이석치환술·약물·수술·재활 중 최적 치료' },
 ]
 
@@ -554,9 +554,9 @@ const PHILOSOPHY = [
    ANIMATION HELPERS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 const easeOut = [0.25, 0.46, 0.45, 0.94] as const
-const fadeUp    = (d = 0) => ({ hidden: { opacity: 0, y: 28 },  visible: { opacity: 1, y: 0,  transition: { duration: 0.6, delay: d, ease: easeOut } } })
-const fadeLeft  = (d = 0) => ({ hidden: { opacity: 0, x: -32 }, visible: { opacity: 1, x: 0,  transition: { duration: 0.6, delay: d, ease: 'easeOut' as const } } })
-const fadeRight = (d = 0) => ({ hidden: { opacity: 0, x: 32 },  visible: { opacity: 1, x: 0,  transition: { duration: 0.6, delay: d, ease: 'easeOut' as const } } })
+const fadeUp    = (d = 0) => ({ hidden: { opacity: 0, y: 28 },  visible: { opacity: 1, y: 0,   transition: { duration: 0.6, delay: d, ease: easeOut } } })
+const fadeLeft  = (d = 0) => ({ hidden: { opacity: 0, x: -32 }, visible: { opacity: 1, x: 0,   transition: { duration: 0.6, delay: d, ease: 'easeOut' as const } } })
+const fadeRight = (d = 0) => ({ hidden: { opacity: 0, x: 32 },  visible: { opacity: 1, x: 0,   transition: { duration: 0.6, delay: d, ease: 'easeOut' as const } } })
 
 function useReveal() {
   const ref    = useRef(null)
@@ -715,15 +715,15 @@ function SleepSection() {
             <h2 className="ek-section-h2" style={{ color: '#fff' }}>대전 코골이·수면무호흡</h2>
             <h3 className="ek-section-h3" style={{ color: '#60A5FA' }}>전문 수면 클리닉</h3>
             <div className="ek-divider" />
-            <p className="ek-body-text" style={{ color: 'rgba(255,255,255,0.75)', marginBottom: 16 }}>
+            <div className="ek-body-text" style={{ color: 'rgba(255,255,255,0.75)', marginBottom: 16 }}>
               대전 코골이는 심뇌혈관 질환, 당뇨, 인지기능 저하와 연관된 심각한 건강 문제입니다.
               <strong style={{ color: '#fff', fontWeight: 600 }}> 수면 전문의</strong>가 수면다원검사로 중증도를
               정밀 평가하고, 비수술·수술적 치료를 아우르는 맞춤 전략을 제시합니다.
-            </p>
-            <p style={{ fontSize: 13, fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 36 }}>
+            </div>
+            <div style={{ fontSize: 13, fontWeight: 300, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 36 }}>
               AHI(무호흡지수)와 산소 포화도 저하 양상에 따라 개인화된 치료 계획이 필요합니다.
               단순 코골이부터 중증 폐쇄성 수면무호흡(OSA)까지 전문의가 직접 관리합니다.
-            </p>
+            </div>
             <div className="ek-stats-grid">
               {[{ v: '15+', l: '수면다원\n검사 항목' }, { v: '98%', l: '진단 정확도' }, { v: '수면', l: '전문의\n자격 보유' }].map(s => (
                 <div key={s.v} className="ek-stat-card">
@@ -770,12 +770,12 @@ function DizzinessSection() {
           <h2 className="ek-section-h2" style={{ color: '#0B1F45' }}>대전 어지럼증 클리닉</h2>
           <h3 className="ek-section-h3" style={{ color: '#1E62C8' }}>체계적인 원인별 맞춤 치료</h3>
           <div className="ek-divider ek-divider-center" />
-          <p className="ek-body-text" style={{ color: '#334155', maxWidth: 560, margin: '0 auto' }}>
+          <div className="ek-body-text" style={{ color: '#334155', maxWidth: 560, margin: '0 auto' }}>
             어지럼증의 약 50%는 이비인후과적 원인인{' '}
             <strong style={{ color: '#0B1F45', fontWeight: 700 }}>전정 기관 이상</strong>에서 비롯됩니다.
             <strong style={{ color: '#0B1F45', fontWeight: 700 }}> 이비인후과 어지럼증 전문가 자격증</strong>을 보유한 전문의가
             비디오 안진검사·전정기능검사를 통해 원인을 정밀하게 감별하고 맞춤 치료를 제공합니다.
-          </p>
+          </div>
         </motion.div>
 
         <div className="ek-condition-grid">
@@ -831,12 +831,12 @@ function HBOTSection() {
           <h2 className="ek-section-h2" style={{ color: '#fff' }}>대전 고압산소치료</h2>
           <h3 className="ek-section-h3" style={{ color: '#60A5FA' }}>대전서울고려이비인후과 최신 고압산소챔버</h3>
           <div className="ek-divider ek-divider-center" />
-          <p className="ek-body-text" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 560, margin: '0 auto' }}>
+          <div className="ek-body-text" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 560, margin: '0 auto' }}>
             고압산소치료(HBOT)는 2~3기압 환경에서{' '}
             <strong style={{ color: '#fff', fontWeight: 600 }}>고농도 순수 산소</strong>를 흡입하여 조직의 산소 분압을 극대화하는 치료입니다.
             최신 1인용 고압산소챔버를 도입하여{' '}
             <strong style={{ color: '#fff', fontWeight: 600 }}>돌발성 난청과 이명 치료</strong>에 특화된 집중 프로그램을 운영합니다.
-          </p>
+          </div>
         </motion.div>
 
         <div className="ek-hbot-layout">
@@ -898,11 +898,11 @@ function HearingSection() {
           <h2 className="ek-section-h2" style={{ color: '#0B1F45' }}>대전 난청·이명·보청기</h2>
           <h3 className="ek-section-h3" style={{ color: '#1E62C8' }}>청능 클리닉</h3>
           <div className="ek-divider ek-divider-center" />
-          <p className="ek-body-text" style={{ color: '#334155', maxWidth: 560, margin: '0 auto' }}>
+          <div className="ek-body-text" style={{ color: '#334155', maxWidth: 560, margin: '0 auto' }}>
             귀는 단순한 청각 기관이 아닙니다. 삶의 질, 인지기능, 사회적 관계와 직결됩니다.
             <strong style={{ color: '#0B1F45', fontWeight: 700 }}> 이명 전문가·보청기전문가 자격증</strong> 보유 전문의가
             정밀 청력 검사부터 보청기 피팅, 청각 재활까지 원스톱으로 제공합니다.
-          </p>
+          </div>
         </motion.div>
 
         <div className="ek-hearing-grid">
@@ -957,7 +957,7 @@ function DoctorSection() {
         </motion.div>
 
         <div className="ek-doctor-layout">
-          {/* 좌측 프로필 */}
+          {/* 좌측 프로필 (사진과 성함 정상 반영) */}
           <motion.div initial={{ opacity: 0, x: -28 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}>
             <div className="ek-photo-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
               <img 
@@ -1125,7 +1125,7 @@ function Footer() {
    FLOATING BUTTONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function FloatingButtons() {
-  const [visible,    setVisible]    = useState(false)
+  const [visible,      setVisible]     = useState(false)
   const [showLabels, setShowLabels] = useState(false)
   useEffect(() => { const t = setTimeout(() => setVisible(true),    2000); return () => clearTimeout(t) }, [])
   useEffect(() => { if (!visible) return; const t = setTimeout(() => setShowLabels(true), 700);  return () => clearTimeout(t) }, [visible])
@@ -1179,7 +1179,7 @@ function FloatingButtons() {
 export default function Page() {
   return (
     <>
-      {/* ★ 모든 CSS를 여기서 직접 주입 — Tailwind 불필요 */}
+      {/* 모든 CSS를 여기서 직접 주입 — Tailwind 불필요 */}
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <Header />
