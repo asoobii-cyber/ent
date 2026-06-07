@@ -641,11 +641,11 @@ function HeroSection() {
       <div className="ek-wrap ek-hero-inner">
         <motion.div className="ek-hero-center" variants={stagger} initial="hidden" animate="visible">
 
-          {/* ★ 고려대 의과대학 외래교수 마크 삽입 */}
+          {/* ★ 고대병원 마크 (alt 글씨 제거 및 정상 매칭) */}
           <motion.img 
             variants={item}
             src="/ku-mark.png" 
-            alt="고려대학교 의과대학 외래교수 마크" 
+            alt="" 
             className="ek-hero-university-mark"
           />
 
