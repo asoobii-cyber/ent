@@ -959,16 +959,16 @@ function DoctorSection() {
         <div className="ek-doctor-layout">
           {/* 좌측 프로필 */}
           <motion.div initial={{ opacity: 0, x: -28 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}>
-           <div className="ek-photo-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
-  <img 
-    src="/doctor.png" 
-    alt="원장 사진" 
-    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-  />
-</div>
-<div className="ek-doctor-card">
-  <div className="ek-doctor-role">원장</div>
-  <div className="ek-doctor-name">박성빈원장 성함</div>{/*
+            <div className="ek-photo-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
+              <img 
+                src="/doctor.png" 
+                alt="원장 사진" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
+            </div>
+            <div className="ek-doctor-card">
+              <div className="ek-doctor-role">원장</div>
+              <div className="ek-doctor-name">박성빈 원장</div>
               <div className="ek-doctor-spec">이비인후과 전문의 · 수면 전문의</div>
               <div className="ek-doctor-divider" />
               <div className="ek-doctor-quote">
