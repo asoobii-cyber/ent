@@ -961,7 +961,7 @@ function DoctorSection() {
           <motion.div initial={{ opacity: 0, x: -28 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}>
             <div className="ek-photo-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
               <img 
-                src="/doctor.png" 
+                src="/doctor.jpg" 
                 alt="원장 사진" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
               />
