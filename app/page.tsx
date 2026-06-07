@@ -35,8 +35,8 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-track { background: #0B1F45; }
 ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 3px; }
 
-/* ── 공통 컨테이너 ── */
-.ek-wrap { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+/* ── 공통 컨테이너 ── 가로폭 확대 반영 (1280px -> 1440px) */
+.ek-wrap { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
 
 /* ── 섹션 공통 ── */
 .ek-section { padding: 80px 0; overflow: hidden; position: relative; }
@@ -48,7 +48,7 @@ img { display: block; max-width: 100%; }
   transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
 }
 .ek-header-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 20px;
+  max-width: 1440px; margin: 0 auto; padding: 0 20px;
   height: 64px; display: flex; align-items: center; justify-content: space-between;
 }
 @media(min-width:768px){ .ek-header-inner { height: 80px; } }
@@ -130,10 +130,11 @@ img { display: block; max-width: 100%; }
   font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
   text-transform: uppercase; color: #60A5FA;
 }
+/* 대제목 크기 확대 반영 (28px->36px / 60px->72px) */
 .ek-hero-h1 {
-  font-size: clamp(28px, 5vw, 60px); font-weight: 700;
-  color: #fff; line-height: 1.2; letter-spacing: -0.03em;
-  margin-bottom: 16px; word-break: keep-all;
+  font-size: clamp(36px, 5.5vw, 72px); font-weight: 700;
+  color: #fff; line-height: 1.25; letter-spacing: -0.03em;
+  margin-bottom: 20px; word-break: keep-all;
 }
 .ek-hero-h1 .ek-grad {
   background: linear-gradient(100deg, #60A5FA, #93C5FD, #60A5FA);
@@ -158,17 +159,17 @@ img { display: block; max-width: 100%; }
 @media(min-width:768px){ .ek-hero-desc { font-size: 18px; } }
 .ek-hero-center { text-align: center; margin-bottom: 56px; }
 
-/* ── 전공 카드 그리드 ── */
+/* ── 전공 카드 그리드 크기 확대 반영 ── */
 .ek-specialty-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 @media(min-width:640px){ .ek-specialty-grid { grid-template-columns: repeat(3, 1fr); } }
 @media(min-width:1024px){ .ek-specialty-grid { grid-template-columns: repeat(6, 1fr); } }
 .ek-specialty-card {
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column;
+  border-radius: 14px; padding: 24px 16px; display: flex; flex-direction: column; /* 내외부 여백 확대 */
   align-items: center; text-align: center; cursor: pointer;
   transition: all 0.25s; backdrop-filter: blur(10px);
 }
@@ -176,8 +177,8 @@ img { display: block; max-width: 100%; }
   background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.4);
   transform: translateY(-4px);
 }
-.ek-specialty-icon { font-size: 28px; margin-bottom: 8px; }
-.ek-specialty-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; line-height: 1.3; }
+.ek-specialty-icon { font-size: 36px; margin-bottom: 12px; } /* 아이콘 28 -> 36 확대 */
+.ek-specialty-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.3; } /* 타이틀 13 -> 15 확대 */
 .ek-specialty-sub { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.3; }
 
 /* ── 자격 배지 목록 ── */
@@ -424,7 +425,7 @@ img { display: block; max-width: 100%; }
 .ek-footer-legal { display: flex; gap: 20px; }
 .ek-footer-legal a:hover { color: #fff; }
 
-/* ━━━ 플로팅 버튼 ━━━ */
+/* ─── 플로팅 버튼 ─── */
 .ek-floating { position: fixed; bottom: 24px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 12px; }
 .ek-float-btn {
   width: 56px; height: 56px; border-radius: 50%;
@@ -447,10 +448,10 @@ img { display: block; max-width: 100%; }
   50% { box-shadow: 0 0 0 14px rgba(59,130,246,0); }
 }
 
-/* ━━━ 링 데코레이션 ━━━ */
+/* ─── 링 데코레이션 ─── */
 .ek-ring { position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; pointer-events:none; }
 
-/* ━━━ 섹션 구분선 ━━━ */
+/* ─── 섹션 구분선 ─── */
 .ek-top-line {
   position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, #60A5FA 40%, #3B82F6 60%, transparent);
@@ -510,7 +511,7 @@ const HBOT_PRINCIPLES = [
   '챔버 내 기압을 2~3기압으로 높여 혈액·조직의 산소 용해도를 최대 20배까지 증가시킵니다.',
   '혈관이 없는 손상 조직까지 산소가 확산되어 세포 재생과 회복을 촉진합니다.',
   '달팽이관(와우)의 산소 공급을 개선하여 돌발성 난청의 회복 가능성을 높입니다.',
-]
+ ]
 
 const HBOT_INDICATIONS = [
   '돌발성 난청 집중 치료', '이명 병행 치료',   '급성 저음형 감각신경성 난청',
@@ -519,13 +520,13 @@ const HBOT_INDICATIONS = [
 ]
 
 const HEARING_SERVICES = [
-  { icon: '🔊', title: '대전 난청 클리닉',
+  { icon: '🔊', title: '서울고려 난청 클리닉',
     desc: '순음청력검사(PTA)·어음청력검사·임피던스검사를 포함한 정밀 청력 평가로 원인별 맞춤 치료를 제공합니다. 노인성·소음성·감각신경성 난청 모두 아우릅니다.',
     points: ['정밀 청력검사 일체', '노인성·소음성·감각신경성 난청', '소아 청력검사'] },
-  { icon: '🎵', title: '대전 이명 클리닉',
+  { icon: '🎵', title: '서울고려 이명 클리닉',
     desc: '이명도검사·최소차폐레벨 검사로 이명의 특성을 정밀 분석하고 이명재훈련치료(TRT)·소리치료·인지행동치료를 복합 적용합니다.',
     points: ['이명 전문가 자격증 보유', '이명재훈련치료(TRT)', '고압산소치료 병행'] },
-  { icon: '🎧', title: '대전 보청기 전문',
+  { icon: '🎧', title: '서울고려 보청기 전문',
     desc: '보청기전문가자격증을 보유한 전문의가 청력도에 맞춘 보청기를 처방하고 실이측정(REM) 기반으로 정밀 피팅합니다. 국가 보조금 처방전 발급 가능.',
     points: ['보청기전문가 자격증 보유', '실이측정(REM) 기반 피팅', '국가 보조금 처방전 발급'] },
 ]
@@ -583,8 +584,8 @@ function Header() {
     }}>
       <div className="ek-header-inner ek-wrap">
         <a href="#">
-          <div className="ek-logo-sub" style={{ color: '#60A5FA' }}>Daejeon Seoul Korea ENT</div>
-          <div className="ek-logo-main">대전서울고려이비인후과</div>
+          <div className="ek-logo-sub" style={{ color: '#60A5FA' }}>Seoul Korea ENT</div>
+          <div className="ek-logo-main">서울고려이비인후과</div>
         </a>
         <nav className="ek-nav">
           {NAV.map(n => <a key={n.label} href={n.href}>{n.label}</a>)}
@@ -647,7 +648,7 @@ function HeroSection() {
             <span className="ek-grad">소리를 책임지는</span>
           </motion.h1>
 
-          <motion.p variants={item} className="ek-hero-sub">대전서울고려이비인후과</motion.p>
+          <motion.p variants={item} className="ek-hero-sub">서울고려이비인후과</motion.p>
 
           <motion.div variants={item} className="ek-hero-divider" />
 
@@ -829,7 +830,7 @@ function HBOTSection() {
           style={{ textAlign: 'center', marginBottom: 56 }}>
           <div className="ek-label">Hyperbaric Oxygen Therapy</div>
           <h2 className="ek-section-h2" style={{ color: '#fff' }}>대전 고압산소치료</h2>
-          <h3 className="ek-section-h3" style={{ color: '#60A5FA' }}>대전서울고려이비인후과 최신 고압산소챔버</h3>
+          <h3 className="ek-section-h3" style={{ color: '#60A5FA' }}>서울고려이비인후과 최신 고압산소챔버</h3>
           <div className="ek-divider ek-divider-center" />
           <div className="ek-body-text" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 560, margin: '0 auto' }}>
             고압산소치료(HBOT)는 2~3기압 환경에서{' '}
@@ -957,11 +958,11 @@ function DoctorSection() {
         </motion.div>
 
         <div className="ek-doctor-layout">
-          {/* 좌측 프로필 (사진과 성함 정상 반영) */}
+          {/* 좌측 프로필 */}
           <motion.div initial={{ opacity: 0, x: -28 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}>
             <div className="ek-photo-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
               <img 
-                src="/doctor.jpg" 
+                src="/doctor.png" 
                 alt="원장 사진" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
               />
@@ -1035,7 +1036,7 @@ function Footer() {
         <motion.div className="ek-footer-cta"
           initial={{ opacity: 0, y: 22 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
           <div>
-            <div className="ek-footer-cta-title">대전서울고려이비인후과와 함께</div>
+            <div className="ek-footer-cta-title">서울고려이비인후과와 함께</div>
             <div className="ek-footer-cta-sub">코골이, 어지럼증, 난청·이명으로 고민이 있으시다면 전문의와 상담하세요.</div>
           </div>
           <div className="ek-footer-cta-btns">
@@ -1050,11 +1051,11 @@ function Footer() {
 
           {/* 병원 정보 */}
           <div>
-            <div className="ek-footer-brand-sub">Daejeon Seoul Korea ENT</div>
-            <div className="ek-footer-brand-main">대전서울고려이비인후과</div>
+            <div className="ek-footer-brand-sub">Seoul Korea ENT</div>
+            <div className="ek-footer-brand-main">서울고려이비인후과</div>
             <div className="ek-footer-info">
               {[
-                { icon: '📍', text: '대전광역시 중구 대종로 OOO\nOO빌딩 O층' },           // ← 실제 주소 교체
+                { icon: '📍', text: '대전광역시 중구 대종로 OOO\nOO빌딩 O층' },
                 { icon: '📞', text: PHONE,           href: `tel:${PHONE}` },
                 { icon: '✉️', text: 'djkoreaent@gmail.com' },
                 { icon: '🌐', text: 'djkoreaent.kr', href: 'https://djkoreaent.kr' },
@@ -1100,7 +1101,7 @@ function Footer() {
                 </a>
               ))}
             </div>
-            <a href="https://maps.google.com/?q=대전서울고려이비인후과"
+            <a href="https://maps.google.com/?q=서울고려이비인후과"
                target="_blank" rel="noopener noreferrer" className="ek-map-btn">
               🗺️ Google 지도로 보기
             </a>
@@ -1109,7 +1110,7 @@ function Footer() {
 
         {/* 최하단 */}
         <div className="ek-footer-bottom">
-          <span>© {new Date().getFullYear()} 대전서울고려이비인후과. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} 서울고려이비인후과. All rights reserved.</span>
           <span style={{ display: 'none' }} id="ek-seo-footer">대전 코골이 · 수면무호흡 · 어지럼증 · 고압산소치료 · 난청 · 이명 · 보청기</span>
           <div className="ek-footer-legal">
             <a href="/privacy">개인정보처리방침</a>
@@ -1179,7 +1180,6 @@ function FloatingButtons() {
 export default function Page() {
   return (
     <>
-      {/* 모든 CSS를 여기서 직접 주입 — Tailwind 불필요 */}
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <Header />
