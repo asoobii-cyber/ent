@@ -568,7 +568,7 @@ function SleepSection() {
             <div className="ek-feature-grid">
               {SLEEP_FEATURES.map((f, i) => (
                 <motion.div key={f.title} className="ek-feature-card" variants={fadeUp(0.1 + i * 0.06)} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
-                  <div className="ek-feature-dot" /><div type="button">
+                  <div className="ek-feature-dot" /><div>
                     <div className="ek-feature-title">{f.title}</div><div className="ek-feature-desc">{f.desc}</div>
                   </div>
                 </motion.div>
