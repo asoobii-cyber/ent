@@ -161,11 +161,20 @@ img { display: block; max-width: 100%; }
 
 /* 대학병원 외래교수 마크 스타일 */
 .ek-hero-university-mark {
-  width: 140px;        /* 👈 가로 크기를 140~160px 정도로 대폭 확대 */
-  height: auto;         /* 비율에 맞게 세로는 자동으로 조절 */
-  margin-bottom: 20px;  /* 아래쪽 글씨들과의 간격 띄우기 */
-  display: block;
-}
+<div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <motion.img 
+              variants={item}
+              src="/hospital-mark.png"
+              alt=""
+              style={{ 
+                width: '110px', 
+                height: 'auto', 
+                marginBottom: '28px',
+                display: 'block'
+              }}
+              className="ek-hero-university-mark"
+            />
+          </div>
 
 /* ── 전공 카드 그리드 크기 확대 ── */
 .ek-specialty-grid {
