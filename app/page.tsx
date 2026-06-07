@@ -148,7 +148,6 @@ img { display: block; max-width: 100%; }
 @media(min-width:768px){ .ek-hero-desc { font-size: 18px; } }
 .ek-hero-center { text-align: center; margin-bottom: 56px; }
 
-/* ── 전공 카드 그리드 복구 ── */
 .ek-specialty-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -287,36 +286,13 @@ img { display: block; max-width: 100%; }
 .ek-footer-cta-sub { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); }
 .ek-footer-cta-btns { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
 @media(min-width:640px){ .ek-footer-cta-btns { flex-direction: row; } }
-.ek-footer-grid { padding: 56px 0; display: grid; grid-template-columns: 1fr; gap: 48px; }
-@media(min-width:768px){ .ek-footer-grid { grid-template-columns: repeat(3,1fr); } }
-.ek-footer-brand-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.4em; text-transform: uppercase; color: #60A5FA; margin-bottom: 4px; }
-.ek-footer-brand-main { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: 0.06em; margin-bottom: 20px; }
-.ek-footer-info { display: flex; flex-direction: column; gap: 12px; }
-.ek-footer-info-row { display: flex; align-items: flex-start; gap: 12px; }
-.ek-footer-info-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
-.ek-footer-info-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
-.ek-footer-info-text a:hover { color: #fff; }
-.ek-hours-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 20px; }
-.ek-hours-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
-.ek-hours-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 300; }
-.ek-hours-note { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.7; }
-.ek-links-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 20px; }
-.ek-links-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.ek-links-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.ek-links-item:hover { color: #60A5FA; }
-.ek-links-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(59,130,246,0.6); flex-shrink: 0; }
-.ek-map-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 10px 16px; border-radius: 10px; transition: all 0.2s; }
-.ek-map-btn:hover { color: #60A5FA; border-color: rgba(96,165,250,0.3); }
 .ek-footer-bottom { padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 12px; align-items: center; font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.3); text-align: center; }
 @media(min-width:768px){ .ek-footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
-.ek-footer-legal { display: flex; gap: 20px; }
-.ek-footer-legal a:hover { color: #fff; }
 
 .ek-floating { position: fixed; bottom: 24px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 12px; }
 .ek-float-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; transition: transform 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; }
 .ek-float-btn:hover { transform: scale(1.1); }
 .ek-float-btn:active { transform: scale(0.95); }
-.ek-float-tooltip { position: absolute; right: 68px; font-size: 12px; font-weight: 400; padding: 6px 12px; border-radius: 8px; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
 .ek-pulse { animation: phonePulse 3s ease-in-out infinite; }
 
 @keyframes phonePulse {
@@ -339,7 +315,7 @@ const NAV = [
   { label: '고압산소치료', href: '#hbot'      },
   { label: '청능 클리닉',   href: '#hearing'   },
   { label: '의료진',       href: '#doctor'    },
-  { label: '오시는 길',    href: '#footer'    },
+  { label: '진료 시간표',   href: '#schedule'  }, // 👈 주간 시간표 바로가기 연결
   { label: '의학 칼럼(블로그)', href: 'https://blog.naver.com/entwarriors' },
 ]
 
@@ -402,13 +378,6 @@ const CREDENTIALS = [
   { cat: '학회 활동', items: ['대한이비인후과학회 정회원', '대한수면연구학회 정회원', '대한평형의학회 정회원', '한국이명학회 정회원'] },
 ]
 
-const HOURS = [
-  { day: '월 · 화 · 수 · 금', time: '09:00 – 18:00', hl: false },
-  { day: '목요일 (야간진료)',  time: '09:00 – 20:00', hl: true  },
-  { day: '토요일',             time: '09:00 – 13:00', hl: false },
-  { day: '일 · 공휴일',        time: '휴진',           hl: false },
-]
-
 const PHILOSOPHY = [
   { icon: '🔬', title: '정밀 진단', desc: '최첨단 검사 장비와 체계적인 프로토콜로 원인을 정확히 파악합니다.' },
   { icon: '🎯', title: '맞춤 치료', desc: '환자 개개인의 상태에 최적화된 치료 계획을 수립합니다.' },
@@ -416,7 +385,7 @@ const PHILOSOPHY = [
 ]
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   COMPONENTS
+   HELPERS & REVEAL INTERSECTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 const easeOut = [0.25, 0.46, 0.45, 0.94] as const
 const fadeUp    = (d = 0) => ({ hidden: { opacity: 0, y: 28 },  visible: { opacity: 1, y: 0,   transition: { duration: 0.6, delay: d, ease: easeOut } } })
@@ -429,6 +398,9 @@ function useReveal() {
   return { ref, inView }
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SUB SECTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen]         = useState(false)
@@ -485,8 +457,6 @@ function HeroSection() {
 
       <div className="ek-wrap ek-hero-inner">
         <motion.div className="ek-hero-center" variants={stagger} initial="hidden" animate="visible">
-          
-          {/* ★ 마크 영역을 완벽하게 삭제하여 공백 및 버그 완전 해결 */}
           <motion.div variants={item} className="ek-hero-badge">
             <div className="ek-hero-badge-line" />
             <span className="ek-hero-badge-text">
@@ -555,7 +525,7 @@ function SleepSection() {
             <h3 className="ek-section-h3" style={{ color: '#60A5FA' }}>전문 수면 클리닉</h3>
             <div className="ek-divider" />
             <div className="ek-body-text" style={{ color: 'rgba(255,255,255,0.75)', marginBottom: 16 }}>
-              대전 코골이는 심뇌혈관 질환과 연관된 심각한 건강 문제입니다. <strong style={{ color: '#fff', fontWeight: 600 }}>수면 전문의</strong>가 수면다원검사로 정밀 평가하고 치료를 제시합니다.
+              대전 코골이는 심뇌혈관 질환과 연관된 심각한 건강 문제입니다. 수면 전문의가 수면다원검사로 정밀 평가하고 치료를 제시합니다.
             </div>
             <div className="ek-stats-grid">
               {[{ v: '15+', l: '수면다원\n검사 항목' }, { v: '98%', l: '진단 정확도' }, { v: '수면', l: '전문의\n자격 보유' }].map(s => (
@@ -568,8 +538,10 @@ function SleepSection() {
             <div className="ek-feature-grid">
               {SLEEP_FEATURES.map((f, i) => (
                 <motion.div key={f.title} className="ek-feature-card" variants={fadeUp(0.1 + i * 0.06)} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
-                  <div className="ek-feature-dot" /><div>
-                    <div className="ek-feature-title">{f.title}</div><div className="ek-feature-desc">{f.desc}</div>
+                  <div className="ek-feature-dot" />
+                  <div>
+                    <div className="ek-feature-title">{f.title}</div>
+                    <div className="ek-feature-desc">{f.desc}</div>
                   </div>
                 </motion.div>
               ))}
@@ -592,7 +564,7 @@ function DizzinessSection() {
           <h3 className="ek-section-h3" style={{ color: '#1E62C8' }}>체계적인 원인별 맞춤 치료</h3>
           <div className="ek-divider ek-divider-center" />
           <div className="ek-body-text" style={{ color: '#334155', maxWidth: 560, margin: '0 auto' }}>
-            어지럼증의 많은 원인은 전정 기관 이상에서 비롯됩니다. <strong style={{ color: '#0B1F45', fontWeight: 700 }}>어지럼증 전문가 자격증</strong>을 보유한 전문의가 정밀 감별합니다.
+            어지럼증의 많은 원인은 전정 기관 이상에서 비롯됩니다. 어지럼증 전문가 자격증을 보유한 전문의가 정밀 감별합니다.
           </div>
         </motion.div>
         <div className="ek-condition-grid">
@@ -653,7 +625,7 @@ function HBOTSection() {
               <div className="ek-golden-icon">⏱</div>
               <div>
                 <div className="ek-golden-title">대전 돌발성 난청, 치료 골든타임</div>
-                <div className="ek-golden-desc">돌발성 난청은 증상 발생 후 <strong style={{ color: '#fff', fontWeight: 600 }}>2주 이내</strong> 치료를 시작하는 것이 예후에 결정적입니다.</div>
+                <div className="ek-golden-desc">돌발성 난청은 증상 발생 후 2주 이내 치료를 시작하는 것이 예후에 결정적입니다.</div>
               </div>
             </motion.div>
           </motion.div>
@@ -735,17 +707,16 @@ function DoctorSection() {
     </section>
   )
 }
+
+/* ─── 새로 추가된 주간 진료일정표 섹션 칸 ─── */
 function ScheduleSection() {
   const { ref, inView } = useReveal()
-  
-  // 1, 2, 3원장님들의 주간 진료 시간표 데이터 (나중에 요일별 진료/휴진을 자유롭게 변경하세요!)
   const scheduleData = [
     { time: '오전 (09:00 - 13:00)', doctor1: '진료', doctor2: '진료', doctor3: '휴진' },
     { time: '오후 (14:00 - 18:00)', doctor1: '진료', doctor2: '휴진', doctor3: '진료' },
     { time: '목요일 야간 (18:00 - 20:00)', doctor1: '휴진', doctor2: '진료', doctor3: '진료' },
     { time: '토요일 (09:00 - 13:00)', doctor1: '교대진료', doctor2: '교대진료', doctor3: '교대진료' },
   ]
-
   return (
     <section id="schedule" ref={ref} className="ek-section" style={{ background: '#fff' }}>
       <div className="ek-wrap">
@@ -755,12 +726,7 @@ function ScheduleSection() {
           <h3 className="ek-section-h3" style={{ color: '#1E62C8' }}>3인 전문의 협진 및 교대 진료 시간표</h3>
           <div className="ek-divider ek-divider-center" />
         </motion.div>
-
-        {/* ── 세련된 스케줄 테이블 ── */}
-        <motion.div 
-          variants={fadeUp(0.1)} initial="hidden" animate={inView ? 'visible' : 'hidden'}
-          style={{ overflowX: 'auto', background: '#EFF6FF', borderRadius: '16px', padding: '24px', boxShadow: '0 4px 20px rgba(30,98,200,0.05)' }}
-        >
+        <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? 'visible' : 'hidden'} style={{ overflowX: 'auto', background: '#EFF6FF', borderRadius: '16px', padding: '24px' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', fontSize: '15px', color: '#334155', minWidth: '600px' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid #DBEAFE', color: '#0B1F45', fontWeight: 700 }}>
@@ -773,16 +739,15 @@ function ScheduleSection() {
             <tbody>
               {scheduleData.map((row, idx) => (
                 <tr key={idx} style={{ borderBottom: idx === scheduleData.length - 1 ? 'none' : '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '16px 8px', fontWeight: 600, color: '#0B1F45', background: 'rgba(255,255,255,0.4)', borderRadius: '8px 0 0 8px' }}>{row.time}</td>
+                  <td style={{ padding: '16px 8px', fontWeight: 600, color: '#0B1F45', background: 'rgba(255,255,255,0.4)' }}>{row.time}</td>
                   <td style={{ padding: '16px 8px', color: row.doctor1 === '휴진' ? '#94A3B8' : '#1E62C8', fontWeight: row.doctor1 !== '휴진' ? 600 : 400 }}>{row.doctor1}</td>
                   <td style={{ padding: '16px 8px', color: row.doctor2 === '휴진' ? '#94A3B8' : '#0B1F45', fontWeight: row.doctor2 !== '휴진' ? 600 : 400 }}>{row.doctor2}</td>
-                  <td style={{ padding: '16px 8px', color: row.doctor3 === '휴진' ? '#94A3B8' : '#0B1F45', fontWeight: row.doctor3 !== '휴진' ? 600 : 400 , borderRadius: '0 8px 8px 0' }}>{row.doctor3}</td>
+                  <td style={{ padding: '16px 8px', color: row.doctor3 === '휴진' ? '#94A3B8' : '#0B1F45', fontWeight: row.doctor3 !== '휴진' ? 600 : 400 }}>{row.doctor3}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </motion.div>
-
         <p style={{ textAlign: 'center', fontSize: '13px', color: '#64748B', marginTop: '16px' }}>
           * 일요일 및 공휴일은 휴진입니다. / 토요일은 점심시간 없이 교대 진료로 진행됩니다.
         </p>
@@ -790,15 +755,14 @@ function ScheduleSection() {
     </section>
   )
 }
+
 function Footer() {
   const { ref, inView } = useReveal()
   return (
     <footer id="footer" ref={ref} style={{ background: '#070F1E', position: 'relative' }}>
       <div className="ek-wrap">
         <motion.div className="ek-footer-cta" initial={{ opacity: 0, y: 22 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
-          <div>
-            <div className="ek-footer-cta-title">서울고려이비인후과</div>
-          </div>
+          <div><div className="ek-footer-cta-title">서울고려이비인후과</div></div>
           <div className="ek-footer-cta-btns">
             <a href={`tel:${PHONE}`} className="ek-btn ek-btn-blue">📞 {PHONE}</a>
             <a href={KAKAO} target="_blank" rel="noopener noreferrer" className="ek-btn ek-btn-kakao">💬 카카오톡 상담</a>
@@ -825,8 +789,13 @@ function FloatingButtons() {
   )
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MAIN PAGE EXPORT (WITH GRAND POPUP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ─── 덮어쓸 영역: page.tsx 파일의 최하단 Page 함수 전체 ─── */
 export default function Page() {
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(true)
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -838,10 +807,13 @@ export default function Page() {
         <HBOTSection />
         <HearingSection />
         <DoctorSection />
+        <ScheduleSection />
         <Footer />
       </main>
       <FloatingButtons />
-    </><AnimatePresence>
+
+      {/* 팝업 레이아웃 완전체 */}
+      <AnimatePresence>
         {showPopup && (
           <motion.div 
             initial={{ opacity: 0 }}
@@ -865,15 +837,12 @@ export default function Page() {
                 textAlign: 'center'
               }}
             >
-              {/* 타이틀 로고 느낌 */}
               <div style={{ color: '#60A5FA', fontSize: '11px', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '6px' }}>
                 SEOUL KOREA ENT
               </div>
               <div style={{ color: '#0B1F45', fontSize: '22px', fontWeight: 700, marginBottom: '20px' }}>
                 그랜드 오픈 안내
               </div>
-
-              {/* 본문 안내 */}
               <div style={{ color: '#334155', fontSize: '15px', lineHeight: 1.7, marginBottom: '28px', wordBreak: 'keep-all' }}>
                 안녕하세요, 서울고려이비인후과입니다.<br />
                 본원은 환자분들께 보다 정밀하고 쾌적한 의료 서비스를 제공해 드리기 위해 만반의 준비를 갖추고 있습니다.<br /><br />
@@ -884,19 +853,14 @@ export default function Page() {
                 <br />
                 수면 전문의의 정밀한 진단과 따뜻한 진료로 대전 지역 주민분들의 건강을 책임지겠습니다. 많은 기대 부탁드립니다.
               </div>
-
-              {/* 하단 닫기 버튼 */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <button 
                   onClick={() => setShowPopup(false)}
                   style={{
                     background: '#3B82F6', color: '#fff', border: 'none',
                     padding: '12px 32px', borderRadius: '8px', fontSize: '14px',
-                    fontWeight: 600, cursor: 'pointer', transition: 'background 0.2s',
-                    width: '100%'
+                    fontWeight: 600, cursor: 'pointer', width: '100%'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#60A5FA'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = '#3B82F6'}
                 >
                   확인 및 홈페이지 둘러보기
                 </button>
@@ -905,5 +869,6 @@ export default function Page() {
           </motion.div>
         )}
       </AnimatePresence>
+    </>
   )
 }
