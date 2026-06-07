@@ -467,14 +467,13 @@ const PHONE = '042-000-0000'   // ← 실제 번호로 교체
 const KAKAO = 'https://open.kakao.com/'  // ← 실제 오픈채팅 URL로 교체
 
 const NAV = [
-const NAV = [
   { label: '수면 클리닉',   href: '#sleep'     },
   { label: '어지럼증',      href: '#dizziness' },
   { label: '고압산소치료', href: '#hbot'      },
   { label: '청능 클리닉',   href: '#hearing'   },
   { label: '의료진',       href: '#doctor'    },
   { label: '오시는 길',    href: '#footer'    },
-  { label: '의학 칼럼(블로그)', href: 'https://blog.naver.com/entwarriors' }, // 👈 이 줄을 새로 추가!
+  { label: '의학 칼럼(블로그)', href: 'https://blog.naver.com/entwarriors' },
 ]
 
 const CARDS = [
