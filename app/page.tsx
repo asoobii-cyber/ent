@@ -35,7 +35,7 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar-track { background: #0B1F45; }
 ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 3px; }
 
-/* ── 공통 컨테이너 ── 가로폭 확대 반영 (1280px -> 1440px) */
+/* ── 공통 컨테이너 ── */
 .ek-wrap { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
 
 /* ── 섹션 공통 ── */
@@ -123,14 +123,14 @@ img { display: block; max-width: 100%; }
 @media(min-width:768px){ .ek-hero-inner { padding-top: 144px; } }
 .ek-hero-badge {
   display: inline-flex; align-items: center; gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .ek-hero-badge-line { height: 1px; width: 32px; background: #60A5FA; }
 .ek-hero-badge-text {
   font-size: 11px; font-weight: 500; letter-spacing: 0.3em;
   text-transform: uppercase; color: #60A5FA;
 }
-/* 대제목 크기 확대 반영 (28px->36px / 60px->72px) */
+/* 대제목 크기 확대 */
 .ek-hero-h1 {
   font-size: clamp(36px, 5.5vw, 72px); font-weight: 700;
   color: #fff; line-height: 1.25; letter-spacing: -0.03em;
@@ -159,7 +159,16 @@ img { display: block; max-width: 100%; }
 @media(min-width:768px){ .ek-hero-desc { font-size: 18px; } }
 .ek-hero-center { text-align: center; margin-bottom: 56px; }
 
-/* ── 전공 카드 그리드 크기 확대 반영 ── */
+/* 대학병원 외래교수 마크 스타일 */
+.ek-hero-university-mark {
+  height: 72px;
+  width: auto;
+  margin: 0 auto 24px;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── 전공 카드 그리드 크기 확대 ── */
 .ek-specialty-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -169,7 +178,7 @@ img { display: block; max-width: 100%; }
 @media(min-width:1024px){ .ek-specialty-grid { grid-template-columns: repeat(6, 1fr); } }
 .ek-specialty-card {
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px; padding: 24px 16px; display: flex; flex-direction: column; /* 내외부 여백 확대 */
+  border-radius: 14px; padding: 24px 16px; display: flex; flex-direction: column;
   align-items: center; text-align: center; cursor: pointer;
   transition: all 0.25s; backdrop-filter: blur(10px);
 }
@@ -177,8 +186,8 @@ img { display: block; max-width: 100%; }
   background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.4);
   transform: translateY(-4px);
 }
-.ek-specialty-icon { font-size: 36px; margin-bottom: 12px; } /* 아이콘 28 -> 36 확대 */
-.ek-specialty-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.3; } /* 타이틀 13 -> 15 확대 */
+.ek-specialty-icon { font-size: 36px; margin-bottom: 12px; }
+.ek-specialty-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.3; }
 .ek-specialty-sub { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.3; }
 
 /* ── 자격 배지 목록 ── */
@@ -511,7 +520,7 @@ const HBOT_PRINCIPLES = [
   '챔버 내 기압을 2~3기압으로 높여 혈액·조직의 산소 용해도를 최대 20배까지 증가시킵니다.',
   '혈관이 없는 손상 조직까지 산소가 확산되어 세포 재생과 회복을 촉진합니다.',
   '달팽이관(와우)의 산소 공급을 개선하여 돌발성 난청의 회복 가능성을 높입니다.',
- ]
+]
 
 const HBOT_INDICATIONS = [
   '돌발성 난청 집중 치료', '이명 병행 치료',   '급성 저음형 감각신경성 난청',
@@ -631,6 +640,14 @@ function HeroSection() {
 
       <div className="ek-wrap ek-hero-inner">
         <motion.div className="ek-hero-center" variants={stagger} initial="hidden" animate="visible">
+
+          {/* ★ 고려대 의과대학 외래교수 마크 삽입 */}
+          <motion.img 
+            variants={item}
+            src="/ku-mark.png" 
+            alt="고려대학교 의과대학 외래교수 마크" 
+            className="ek-hero-university-mark"
+          />
 
           {/* 자격 배지 */}
           <motion.div variants={item} className="ek-hero-badge">
