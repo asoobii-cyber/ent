@@ -735,7 +735,61 @@ function DoctorSection() {
     </section>
   )
 }
+function ScheduleSection() {
+  const { ref, inView } = useReveal()
+  
+  // 1, 2, 3원장님들의 주간 진료 시간표 데이터 (나중에 요일별 진료/휴진을 자유롭게 변경하세요!)
+  const scheduleData = [
+    { time: '오전 (09:00 - 13:00)', doctor1: '진료', doctor2: '진료', doctor3: '휴진' },
+    { time: '오후 (14:00 - 18:00)', doctor1: '진료', doctor2: '휴진', doctor3: '진료' },
+    { time: '목요일 야간 (18:00 - 20:00)', doctor1: '휴진', doctor2: '진료', doctor3: '진료' },
+    { time: '토요일 (09:00 - 13:00)', doctor1: '교대진료', doctor2: '교대진료', doctor3: '교대진료' },
+  ]
 
+  return (
+    <section id="schedule" ref={ref} className="ek-section" style={{ background: '#fff' }}>
+      <div className="ek-wrap">
+        <motion.div variants={fadeUp()} initial="hidden" animate={inView ? 'visible' : 'hidden'} style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div className="ek-label">Medical Schedule</div>
+          <h2 className="ek-section-h2" style={{ color: '#0B1F45' }}>진료 일정 안내</h2>
+          <h3 className="ek-section-h3" style={{ color: '#1E62C8' }}>3인 전문의 협진 및 교대 진료 시간표</h3>
+          <div className="ek-divider ek-divider-center" />
+        </motion.div>
+
+        {/* ── 세련된 스케줄 테이블 ── */}
+        <motion.div 
+          variants={fadeUp(0.1)} initial="hidden" animate={inView ? 'visible' : 'hidden'}
+          style={{ overflowX: 'auto', background: '#EFF6FF', borderRadius: '16px', padding: '24px', boxShadow: '0 4px 20px rgba(30,98,200,0.05)' }}
+        >
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', fontSize: '15px', color: '#334155', minWidth: '600px' }}>
+            <thead>
+              <tr style={{ borderBottom: '2px solid #DBEAFE', color: '#0B1F45', fontWeight: 700 }}>
+                <th style={{ padding: '16px 8px' }}>진료 시간</th>
+                <th style={{ padding: '16px 8px', color: '#1E62C8' }}>1원장 (박성빈)</th>
+                <th style={{ padding: '16px 8px' }}>2원장</th>
+                <th style={{ padding: '16px 8px' }}>3원장</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scheduleData.map((row, idx) => (
+                <tr key={idx} style={{ borderBottom: idx === scheduleData.length - 1 ? 'none' : '1px solid #E2E8F0' }}>
+                  <td style={{ padding: '16px 8px', fontWeight: 600, color: '#0B1F45', background: 'rgba(255,255,255,0.4)', borderRadius: '8px 0 0 8px' }}>{row.time}</td>
+                  <td style={{ padding: '16px 8px', color: row.doctor1 === '휴진' ? '#94A3B8' : '#1E62C8', fontWeight: row.doctor1 !== '휴진' ? 600 : 400 }}>{row.doctor1}</td>
+                  <td style={{ padding: '16px 8px', color: row.doctor2 === '휴진' ? '#94A3B8' : '#0B1F45', fontWeight: row.doctor2 !== '휴진' ? 600 : 400 }}>{row.doctor2}</td>
+                  <td style={{ padding: '16px 8px', color: row.doctor3 === '휴진' ? '#94A3B8' : '#0B1F45', fontWeight: row.doctor3 !== '휴진' ? 600 : 400 , borderRadius: '0 8px 8px 0' }}>{row.doctor3}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
+
+        <p style={{ textAlign: 'center', fontSize: '13px', color: '#64748B', marginTop: '16px' }}>
+          * 일요일 및 공휴일은 휴진입니다. / 토요일은 점심시간 없이 교대 진료로 진행됩니다.
+        </p>
+      </div>
+    </section>
+  )
+}
 function Footer() {
   const { ref, inView } = useReveal()
   return (
