@@ -159,22 +159,7 @@ img { display: block; max-width: 100%; }
 @media(min-width:768px){ .ek-hero-desc { font-size: 18px; } }
 .ek-hero-center { text-align: center; margin-bottom: 56px; }
 
-/* 대학병원 외래교수 마크 스타일 */
-.ek-hero-university-mark {
-<div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-            <motion.img 
-              variants={item}
-              src="/hospital-mark.png"
-              alt=""
-              style={{ 
-                width: '110px', 
-                height: 'auto', 
-                marginBottom: '28px',
-                display: 'block'
-              }}
-              className="ek-hero-university-mark"
-            />
-          </div>
+
 
 /* ── 전공 카드 그리드 크기 확대 ── */
 .ek-specialty-grid {
