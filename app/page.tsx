@@ -161,11 +161,10 @@ img { display: block; max-width: 100%; }
 
 /* 대학병원 외래교수 마크 스타일 */
 .ek-hero-university-mark {
-  height: 72px;
-  width: auto;
-  margin: 0 auto 24px;
+  width: 140px;        /* 👈 가로 크기를 140~160px 정도로 대폭 확대 */
+  height: auto;         /* 비율에 맞게 세로는 자동으로 조절 */
+  margin-bottom: 20px;  /* 아래쪽 글씨들과의 간격 띄우기 */
   display: block;
-  object-fit: contain;
 }
 
 /* ── 전공 카드 그리드 크기 확대 ── */
