@@ -1,0 +1,17 @@
+# 매일 아침 홈페이지를 다시 배포해서 유튜브 채널의 새 영상이 홈에 자동으로 뜨게 합니다.
+# 필요: GitHub 저장소 Settings → Secrets → Actions 에 VERCEL_DEPLOY_HOOK (Vercel Deploy Hook 주소) 등록
+name: daily-deploy
+on:
+  schedule:
+    - cron: '0 21 * * *' # 매일 한국시간 오전 6시
+  workflow_dispatch: {}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "VERCEL_DEPLOY_HOOK secret not set"; exit 0; fi
+          curl -fsS -X POST "$HOOK"

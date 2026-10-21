@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import NoticePopup from '@/components/NoticePopup'
-import Video from '@/components/Video'
+import { getHomeVideos } from '@/lib/youtube'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
-import { site, videos } from '@/lib/site'
+import { site } from '@/lib/site'
 
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
@@ -12,7 +12,8 @@ const principles = [
   { t: '오래 관리해야 하는 진료는 끝까지', b: '보청기 사후관리, 양압기 적응, 3년 면역치료처럼 시간이 걸리는 치료는 일정을 정해 다시 확인합니다.' },
 ]
 
-export default function Home() {
+export default async function Home() {
+  const yt = await getHomeVideos()
   // 제목 순서(잘 들리고 → 어지럽지 않고 → 잠을 잘 자기)와 맞춤
   const special = ['hearing', 'dizziness', 'sleep'].map((slug) => centers.find((c) => c.slug === slug)!)
   const care = centers.find((c) => c.slug === 'care')!
@@ -57,6 +58,48 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="yt" aria-labelledby="yt-title">
+        <div className="wrap">
+          <div className="yt-head">
+            <div>
+              <h2 id="yt-title" className="yt-title">영상으로 먼저 만나보세요</h2>
+              <p className="yt-lead">박성빈 원장이 직접 설명하는 귀·코·목 건강 이야기</p>
+            </div>
+            <div className="yt-links">
+              <a className="btn btn-solid btn-sm" href={site.youtube} target="_blank" rel="noopener noreferrer">
+                유튜브 채널 보기
+              </a>
+              <a className="btn btn-ghost btn-sm" href={site.blog} target="_blank" rel="noopener noreferrer">
+                블로그 칼럼
+              </a>
+            </div>
+          </div>
+          <ul className="yt-row">
+            {yt.map((v) => (
+              <li key={v.id}>
+                <a href={`https://www.youtube.com/watch?v=${v.id}`} target="_blank" rel="noopener noreferrer" className="yt-card">
+                  <span className="yt-thumb">
+                    <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" width={480} height={360} />
+                    <span className="yt-play" aria-hidden="true" />
+                  </span>
+                  <span className="yt-card-title">{v.title}</span>
+                  <span className="yt-card-ch">{v.own ? '고려이비인후과 채널' : `${v.channel} 출연`}</span>
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href={site.youtube} target="_blank" rel="noopener noreferrer" className="yt-card yt-more">
+                <span className="yt-thumb yt-thumb-more">
+                  <span>새 영상이 계속 올라옵니다</span>
+                </span>
+                <span className="yt-card-title">고려이비인후과의원 채널 구독하기</span>
+                <span className="yt-card-ch">youtube.com/@고려이비인후과의원</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -155,30 +198,6 @@ export default function Home() {
 <a className="btn btn-ghost" href={site.naverMap} target="_blank" rel="noopener noreferrer">네이버 지도에서 보기</a>
 )}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <h2 className="sec-h">영상과 칼럼으로 먼저 만나보세요</h2>
-          <p className="sec-lead">박성빈 원장이 출연한 건강 영상과, 진료실에서 다 못 한 설명을 정리한 블로그 칼럼입니다.</p>
-          <div className="videos">
-            {videos.map((v) => (
-              <Video key={v.id} v={v} />
-            ))}
-          </div>
-          <div className="media">
-            <a className="media-card" href={site.blog} target="_blank" rel="noopener noreferrer">
-              <span className="media-kind">네이버 블로그</span>
-              <span className="media-title">어지럼증, 코골이, 난청, 비염 건강 칼럼</span>
-              <span className="media-go">블로그에서 읽기</span>
-            </a>
-            <a className="media-card media-yt" href={site.youtube} target="_blank" rel="noopener noreferrer">
-              <span className="media-kind">유튜브</span>
-              <span className="media-title">고려이비인후과의원 채널</span>
-              <span className="media-go">채널에서 보기</span>
-            </a>
           </div>
         </div>
       </section>
