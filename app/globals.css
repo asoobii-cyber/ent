@@ -362,3 +362,7 @@ ul, ol { padding: 0; list-style: none; }
 
 .mbar-call a:nth-child(2) { background: transparent; color: inherit; border-left: 1px solid var(--line); }
 .mbar-call a:first-child { background: var(--crimson); color: #fff; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.badges li { padding: 7px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--crimson); color: var(--crimson); font-size: 15px; font-weight: 600; }
+.sec-paper2 .badges li { background: #fff; }

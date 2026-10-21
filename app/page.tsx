@@ -96,17 +96,18 @@ export default function Home() {
 
       <section className="sec sec-paper2">
         <div className="wrap doc">
-          <div className="doc-photo">
-            <img src={site.doctor.photo} alt={`${site.doctor.name} ${site.doctor.title}`} width={1000} height={1500} />
+          <div className="doc-photo doc-photo-light">
+            <img src={site.doctor.portrait} alt={`${site.doctor.name} ${site.doctor.title}`} width={1000} height={1294} />
           </div>
           <div>
-            <p className="doc-name">{site.doctor.name}</p>
-            <p className="doc-role">
-              {site.doctor.title} · {site.doctor.specialty}
-            </p>
-            <p className="doc-quote">
-              검사로 확인한 것을 쉬운 말로 설명드리고, 치료가 오래 걸리는 분은 끝까지 함께 보겠습니다.
-            </p>
+            <p className="doc-name">{site.doctor.name} 원장</p>
+            <p className="doc-role">고려대학교 의과대학 출신 · {site.doctor.specialty}</p>
+            <ul className="badges">
+              {site.doctor.badges.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+            <p className="doc-quote">&ldquo;{site.doctor.quote}&rdquo;</p>
             <ul className="doc-career">
               {site.doctor.training.map((t) => (
                 <li key={t}>{t}</li>

@@ -34,7 +34,9 @@ export const site = {
     specialty: '이비인후과 전문의',
     photo: '/images/doctor-coat-smile.webp',
     portrait: '/images/doctor-portrait.webp', // 원장 소개 페이지 대표 사진
-    training: ['고려대학교 의과대학 졸업', '고려대학교 안산병원 이비인후과 전임의'],
+    training: ['고려대학교 의과대학 의학사 · 대학원 의학석사', '고려대학교 안산병원 이비인후과 전공의 · 전임의'],
+    // 홈 원장 소개에 배지로 보이는 대표 자격
+    badges: ['이비인후과 전문의', '수면 전문의', '어지럼증 전문가', '이명 전문가', '보청기 전문가'],
     quote: '환자의 수면의 질, 삶의 질이 근본적으로 개선될 때까지 함께하는 의료를 추구합니다.',
     history: [
       { title: '학력', items: ['고려대학교 의과대학 의학사', '고려대학교 대학원 의학석사'] },
