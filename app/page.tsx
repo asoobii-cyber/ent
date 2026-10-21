@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import NoticePopup from '@/components/NoticePopup'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
 import { site } from '@/lib/site'
@@ -6,7 +7,7 @@ import { site } from '@/lib/site'
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
   { t: '검사 결과를 숫자로 보여드립니다', b: '청력, 어지럼, 수면, 이명 상태를 검사와 설문 점수로 기록해 치료 전후를 함께 비교합니다.' },
-  { t: '청력검사와 보청기는 전담 인력이', b: '청각 전담 인력 2명이 청력검사, 보청기 상담·피팅·사후관리를 맡습니다. 검사 결과는 진료 의사가 함께 확인합니다.' },
+  { t: '청력검사와 보청기는 청각사가', b: '청각사 2명이 청력검사와 보청기 상담·피팅·사후관리를 맡고, 검사 결과는 진료한 전문의가 함께 확인합니다.' },
   { t: '오래 관리해야 하는 진료는 끝까지', b: '보청기 사후관리, 양압기 적응, 3년 면역치료처럼 시간이 걸리는 치료는 일정을 정해 다시 확인합니다.' },
 ]
 
@@ -16,6 +17,7 @@ export default function Home() {
   const care = centers.find((c) => c.slug === 'care')!
   return (
     <>
+      <NoticePopup />
       <section className="hero">
         <div className="wrap hero-inner">
           <div className="hero-text">
@@ -61,7 +63,7 @@ export default function Home() {
         <div className="wrap split">
           <div>
             <h2 className="sec-h">진료 원칙</h2>
-            <p className="sec-lead">진료는 이비인후과 전문의가, 청력검사와 보청기는 전담 청각 인력 2명이 맡아 검사부터 사후관리까지 이어서 봅니다.</p>
+            <p className="sec-lead">이비인후과 전문의의 진료 후, 2명의 전문 청각사와 함께 진단과 검사, 사후관리까지 진행합니다.</p>
           </div>
           <ul className="principles">
             {principles.map((p) => (

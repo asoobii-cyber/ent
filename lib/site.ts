@@ -33,15 +33,23 @@ export const site = {
     title: '대표원장',
     specialty: '이비인후과 전문의',
     photo: '/images/doctor-coat-smile.webp',
-    photoAlt: '/images/doctor-coat-arms.webp',
-    photos: ['/images/doctor-scrubs-smile.webp', '/images/doctor-scrubs.webp'],
-    training: ['고려대학교 의료원 이비인후과 수련'],
-    // 【확인】 학력·경력·학회 활동을 정확한 명칭으로 채워주세요.
-    career: [
-      '이비인후과 전문의',
-      '고려대학교 의료원 이비인후과 전공의 수련',
-      '【이전 근무 병원】 진료원장',
-      '【학회명】 정회원',
+    portrait: '/images/doctor-portrait.webp', // 원장 소개 페이지 대표 사진
+    training: ['고려대학교 의과대학 졸업', '고려대학교 안산병원 이비인후과 전임의'],
+    quote: '환자의 수면의 질, 삶의 질이 근본적으로 개선될 때까지 함께하는 의료를 추구합니다.',
+    history: [
+      { title: '학력', items: ['고려대학교 의과대학 의학사', '고려대학교 대학원 의학석사'] },
+      { title: '수련', items: ['고려대학교 안산병원 이비인후과 레지던트 수료', '고려대학교 안산병원 이비인후과 전임의'] },
+      {
+        title: '자격',
+        items: [
+          '보건복지부 인증 이비인후과 전문의',
+          '대한수면연구학회 수면 전문의',
+          '이비인후과 어지럼증 전문가 자격증',
+          '이명 전문가 자격증',
+          '보청기전문가 자격증',
+        ],
+      },
+      { title: '학회 활동', items: ['대한이비인후과학회 정회원', '대한수면연구학회 정회원', '대한평형의학회 정회원', '한국이명학회 정회원'] },
     ],
   },
 }
