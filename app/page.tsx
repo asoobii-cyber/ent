@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Motif from '@/components/Motif'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
 import { site } from '@/lib/site'
@@ -11,7 +10,8 @@ const principles = [
 ]
 
 export default function Home() {
-  const special = centers.filter((c) => c.slug !== 'care')
+  // 제목 순서(잘 들리고 → 어지럽지 않고 → 잠을 잘 자기)와 맞춤
+  const special = ['hearing', 'dizziness', 'sleep'].map((slug) => centers.find((c) => c.slug === slug)!)
   const care = centers.find((c) => c.slug === 'care')!
   return (
     <>
@@ -19,10 +19,14 @@ export default function Home() {
         <div className="wrap hero-inner">
           <div className="hero-text">
             <p className="hero-open">{site.openDateLabel} 대전 서구 관저동 개원</p>
-            <h1 className="hero-title">어지럽고, 잠 못 자고, 잘 안 들리는 이유를 검사로 찾습니다</h1>
+            <h1 className="hero-title">
+              <span>잘 들리고,</span>
+              <span>어지럽지 않고,</span>
+              <span>잠을 잘 자기 위하여</span>
+            </h1>
             <p className="hero-lead">
-              {site.name}은 귀·코·목 진료와 함께 어지럼증, 수면, 이명·난청을 검사 중심으로 봅니다. 감기와 비염은 예약 없이,
-              월·수·금은 밤 9시까지 진료합니다.
+              {site.name}은 귀·코·목 진료와 함께 어지럼증, 수면, 이명·난청을 검사로 확인하고 끝까지 관리합니다.
+              감기와 비염은 예약 없이, <span className="nowrap">월·수·금</span>은 밤 9시까지 진료합니다.
             </p>
             <div className="hero-actions">
               <a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
@@ -42,11 +46,10 @@ export default function Home() {
           <div className="hero-trace">
             {special.map((c) => (
               <Link key={c.slug} href={`/${c.slug}/`}>
-                <Motif kind={c.motif} animate />
-                <span>
-                  <span className="hero-trace-name">{c.name}</span>
-                  <span className="hero-trace-sub">{conditionsOf(c.slug).map((d) => d.name).slice(0, 3).join(', ')}</span>
-                </span>
+                <span className="hero-trace-name">{c.name}</span>
+                <span className="hero-trace-desc">{c.tagline}</span>
+                <span className="hero-trace-sub">{conditionsOf(c.slug).map((d) => d.name).join(' · ')}</span>
+                <span className="hero-trace-more">자세히 보기</span>
               </Link>
             ))}
           </div>

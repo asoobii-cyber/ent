@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import type { Center, Faq, Motif as MotifKind } from '@/lib/content'
 import { centers } from '@/lib/content'
 import { hours, hoursFootnote, site } from '@/lib/site'
-import Motif from './Motif'
 
 export function JsonLd({ data }: { data: object | object[] }) {
   return (
@@ -51,11 +50,6 @@ export function PageHero({
           <h1 className="phero-title">{title}</h1>
           {lead && <p className="phero-lead">{lead}</p>}
           {children}
-          {motif && (
-            <div className="phero-motif">
-              <Motif kind={motif} animate />
-            </div>
-          )}
         </div>
         {image && (
           <figure className="arch phero-img">

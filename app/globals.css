@@ -3,14 +3,16 @@
    인테리어의 웜 화이트·그레이지 위에, 로고·간판의 크림슨(#7C0A1B)을 포인트로만 씁니다.
    사진 프레임은 인테리어의 아치 벽에서 가져왔습니다.
    ───────────────────────────────────────────── */
+html { color-scheme: only light; }
+
 :root {
   /* 인테리어(웜 화이트·그레이지)와 간판 D안(크림슨)에서 가져온 색 */
   --bg: #ffffff;
-  --greige: #f6f3ef;
+  --greige: #f8f6f3;
   --greige-2: #ece6df;
   --line: #e7e1da;
-  --text: #2a2422;
-  --text-mute: #6d6560;
+  --text: #1f1a19;
+  --text-mute: #4f4844;
   --crimson: #7c0a1b;
   --crimson-dark: #5f0713;
   --crimson-tint: #f6e9ea;
@@ -119,29 +121,30 @@ ul, ol { padding: 0; list-style: none; }
 }
 
 /* ── 홈 히어로 */
-.hero { background: linear-gradient(180deg, var(--greige) 0%, #fff 100%); }
+.hero { background: #fff; }
 .hero-inner { display: grid; gap: 40px; padding-top: 56px; padding-bottom: 48px; align-items: center; }
 @media (min-width: 960px) { .hero-inner { grid-template-columns: 1.1fr .9fr; gap: 64px; padding-top: 72px; } }
 .hero-open { display: inline-block; font-size: 14px; font-weight: 600; color: var(--crimson); background: var(--crimson-tint); border-radius: 999px; padding: 5px 14px; }
-.hero-title { margin-top: 22px; font-size: clamp(34px, 5.2vw, 62px); line-height: 1.2; font-weight: 300; letter-spacing: -0.045em; }
-.hero-lead { margin-top: 22px; font-size: clamp(17px, 1.5vw, 19px); color: var(--text-mute); max-width: 34em; }
+.hero-title { margin-top: 24px; font-size: clamp(34px, 4.8vw, 58px); line-height: 1.28; font-weight: 600; letter-spacing: -0.04em; color: var(--text); }
+.hero-title span { display: block; }
+.hero-title span:last-child { color: var(--crimson); }
+.hero-lead { margin-top: 24px; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.8; color: var(--text-mute); max-width: 32em; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
 .hero-img { aspect-ratio: 4 / 5; max-height: 560px; width: 100%; }
 @media (max-width: 959px) { .hero-img { aspect-ratio: 4 / 3; max-height: none; border-radius: 240px 240px var(--radius-l) var(--radius-l); } }
 .hero-img img { object-position: 62% center; }
 .hero-img { position: relative; }
 .hero-img figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 16px; font-size: 12.5px; color: #fff; background: linear-gradient(transparent, rgba(40,30,25,.45)); text-align: right; }
-.hero-trace { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 72px; }
-.hero-trace a { display: block; padding: 24px; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-l); transition: border-color .15s; }
-.hero-trace a:hover { border-color: var(--crimson); }
-.hero-trace .motif { height: 64px; }
-.hero-trace-name { display: block; margin-top: 16px; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
-.hero-trace-sub { display: block; font-size: 14.5px; color: var(--text-mute); margin-top: 2px; }
+.hero-trace { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 80px; }
+.hero-trace a { display: flex; flex-direction: column; gap: 8px; padding: 28px; text-decoration: none; background: var(--greige); border: 1px solid var(--line); border-radius: var(--radius-l); transition: border-color .15s, background .15s; }
+.hero-trace a:hover { border-color: var(--crimson); background: #fff; }
+.hero-trace-name { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+.hero-trace-desc { font-size: 16.5px; color: var(--text); }
+.hero-trace-sub { font-size: 15px; color: var(--text-mute); line-height: 1.7; }
+.hero-trace-more { margin-top: auto; padding-top: 10px; font-size: 15px; font-weight: 600; color: var(--crimson); }
 @media (max-width: 760px) {
   .hero-trace { grid-template-columns: 1fr; gap: 10px; }
-  .hero-trace a { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; padding: 16px 18px; }
-  .hero-trace .motif { height: 40px; }
-  .hero-trace-name { margin-top: 0; }
+  .hero-trace a { padding: 22px; }
 }
 
 /* ── 섹션 */
@@ -202,7 +205,7 @@ ul, ol { padding: 0; list-style: none; }
 .crumbs li + li::before { content: '/'; margin-right: 6px; opacity: .5; }
 .crumbs a { text-decoration: none; }
 .crumbs a:hover { color: var(--crimson); }
-.phero-title { margin-top: 26px; font-size: clamp(34px, 5vw, 56px); font-weight: 300; letter-spacing: -0.045em; line-height: 1.2; }
+.phero-title { margin-top: 26px; font-size: clamp(32px, 4.6vw, 52px); font-weight: 600; letter-spacing: -0.045em; line-height: 1.2; }
 .phero-lead { margin-top: 16px; font-size: 18px; color: var(--text-mute); max-width: 34em; }
 .phero-alt { margin-top: 12px; font-size: 15px; color: var(--text-mute); }
 .phero-motif { margin-top: 32px; height: 56px; max-width: 420px; }
@@ -323,3 +326,5 @@ ul, ol { padding: 0; list-style: none; }
 .media-yt .media-kind { color: rgba(255,255,255,.8); }
 .media-title { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
 .media-go { font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
+
+.nowrap { white-space: nowrap; }
