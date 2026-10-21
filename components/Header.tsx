@@ -71,9 +71,15 @@ export default function Header() {
             <span className="sr-only">전화 </span>
             {site.phone}
           </a>
-          <a className="btn btn-solid btn-sm" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
-            네이버예약
-          </a>
+          {site.naverBooking ? (
+            <a className="btn btn-solid btn-sm" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
+              네이버예약
+            </a>
+          ) : (
+            <a className="btn btn-solid btn-sm" href={`tel:${site.phone}`}>
+              전화 예약
+            </a>
+          )}
           <button
             className="hd-burger"
             aria-label={mobile ? '메뉴 닫기' : '전체 메뉴 열기'}

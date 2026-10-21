@@ -85,12 +85,12 @@ export function BookingBox({ center }: { center: Center }) {
       </p>
       <p className="book-text">{text}</p>
       <div className="book-actions">
-        {mode === 'naver' && (
+        {mode === 'naver' && site.naverBooking && (
           <a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
             네이버예약 하기
           </a>
         )}
-        <a className={`btn ${mode === 'naver' ? 'btn-ghost' : 'btn-solid'}`} href={`tel:${site.phone}`}>
+        <a className={`btn ${mode === 'naver' && site.naverBooking ? 'btn-ghost' : 'btn-solid'}`} href={`tel:${site.phone}`}>
           전화 {site.phone}
         </a>
         <Link className="btn btn-ghost" href="/guide/#hours">
@@ -140,10 +140,14 @@ export function Footer() {
             대표전화 <a href={`tel:${site.phone}`}>{site.phone}</a>
           </address>
           <div className="sns">
-            <a href={site.naverPlace} target="_blank" rel="noopener noreferrer">네이버 플레이스</a>
+            {site.naverPlace && (
+              <a href={site.naverPlace} target="_blank" rel="noopener noreferrer">네이버 플레이스</a>
+            )}
             <a href={site.blog} target="_blank" rel="noopener noreferrer">네이버 블로그</a>
             <a href={site.youtube} target="_blank" rel="noopener noreferrer">유튜브</a>
-            <a href={site.kakao} target="_blank" rel="noopener noreferrer">카카오톡 채널</a>
+            {site.kakao && (
+              <a href={site.kakao} target="_blank" rel="noopener noreferrer">카카오톡 채널</a>
+            )}
           </div>
         </div>
         <div>
@@ -172,7 +176,7 @@ export function Footer() {
       </div>
       <div className="wrap ft-legal">
         <p>
-          {site.legalName} · 대표원장 {site.doctor.name} · 사업자등록번호 【확인】
+          {site.legalName} · 대표원장 {site.doctor.name}
         </p>
         <p>이 사이트의 의료 정보는 일반적인 안내이며, 진단과 치료는 진찰을 통해 개인별로 결정됩니다.</p>
       </div>
@@ -182,10 +186,15 @@ export function Footer() {
 
 export function MobileBar() {
   return (
-    <nav className="mbar" aria-label="빠른 연결">
+    <nav className={`mbar${site.naverBooking ? '' : ' mbar-call'}`} aria-label="빠른 연결" style={{ gridTemplateColumns: `repeat(${2 + (site.naverBooking ? 1 : 0) + (site.kakao ? 1 : 0) + 1}, 1fr)` }}>
       <a href={`tel:${site.phone}`}>전화</a>
-      <a href={site.naverBooking} target="_blank" rel="noopener noreferrer">네이버예약</a>
-      <a href={site.kakao} target="_blank" rel="noopener noreferrer">카카오톡</a>
+      {site.naverBooking && (
+        <a href={site.naverBooking} target="_blank" rel="noopener noreferrer">네이버예약</a>
+      )}
+      {site.kakao && (
+        <a href={site.kakao} target="_blank" rel="noopener noreferrer">카카오톡</a>
+      )}
+      <Link href="/faq/">자주 묻는 질문</Link>
       <Link href="/guide/#location">오시는 길</Link>
     </nav>
   )

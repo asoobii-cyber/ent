@@ -22,10 +22,10 @@ export function clinicSchema() {
       streetAddress: site.address.street,
       addressLocality: site.address.locality,
       addressRegion: site.address.region,
-      postalCode: site.address.postalCode,
+      ...(site.address.postalCode && { postalCode: site.address.postalCode }),
       addressCountry: 'KR',
     },
-    geo: { '@type': 'GeoCoordinates', latitude: site.address.geo.lat, longitude: site.address.geo.lng },
+    ...(site.address.geo && { geo: { '@type': 'GeoCoordinates', latitude: site.address.geo.lat, longitude: site.address.geo.lng } }),
     openingHoursSpecification: hours.map((h) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: h.dayCodes.map((d) => `https://schema.org/${d}`),
@@ -35,7 +35,7 @@ export function clinicSchema() {
     medicalSpecialty: 'https://schema.org/Otolaryngologic',
     availableService: centers.map((c) => ({ '@type': 'MedicalTherapy', name: c.name, url: abs(`/${c.slug}/`) })),
     employee: { '@id': doctorId },
-    sameAs: [site.blog, site.youtube],
+    sameAs: [site.blog, site.youtube, site.naverPlace].filter(Boolean),
   }
 }
 

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Video from '@/components/Video'
 import { BookingBox, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
 import { REVIEWED, withIran, conditions, conditionsOf, getCenter, getCondition } from '@/lib/content'
+import { videos } from '@/lib/site'
 import { breadcrumbSchema, conditionPageSchema, faqSchema } from '@/lib/schema'
 
 export const dynamicParams = false
@@ -111,6 +113,13 @@ export default async function ConditionPage({ params }: Props) {
               ))}
             </ul>
           </section>
+
+          {videos.filter((v) => v.condition === d.slug).map((v) => (
+            <section key={v.id} id="video">
+              <h2>원장 출연 영상</h2>
+              <Video v={v} />
+            </section>
+          ))}
 
           {d.faqs.length > 0 && (
             <section id="faq">

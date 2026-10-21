@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import NoticePopup from '@/components/NoticePopup'
+import Video from '@/components/Video'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
-import { site } from '@/lib/site'
+import { site, videos } from '@/lib/site'
 
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
@@ -32,10 +33,10 @@ export default function Home() {
               감기와 비염은 예약 없이, <span className="nowrap">월·수·금</span>은 밤 9시까지 진료합니다.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
-                네이버예약
-              </a>
-              <a className="btn btn-ghost" href={`tel:${site.phone}`}>
+              {site.naverBooking && (
+<a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">네이버예약</a>
+)}
+              <a className={`btn ${site.naverBooking ? 'btn-ghost' : 'btn-solid'}`} href={`tel:${site.phone}`}>
                 전화 {site.phone}
               </a>
             </div>
@@ -135,19 +136,23 @@ export default function Home() {
                 <dt>주소</dt>
                 <dd>{site.address.full}</dd>
               </div>
-              <div>
-                <dt>주차</dt>
-                <dd>{site.parking}</dd>
-              </div>
-              <div>
-                <dt>대중교통</dt>
-                <dd>{site.transit}</dd>
-              </div>
+              {site.parking && (
+<div>
+<dt>주차</dt>
+<dd>{site.parking}</dd>
+</div>
+)}
+              {site.transit && (
+<div>
+<dt>대중교통</dt>
+<dd>{site.transit}</dd>
+</div>
+)}
             </dl>
             <div className="hero-actions">
-              <a className="btn btn-ghost" href={site.naverMap} target="_blank" rel="noopener noreferrer">
-                네이버 지도에서 보기
-              </a>
+              {site.naverMap && (
+<a className="btn btn-ghost" href={site.naverMap} target="_blank" rel="noopener noreferrer">네이버 지도에서 보기</a>
+)}
             </div>
           </div>
         </div>
@@ -155,8 +160,13 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <h2 className="sec-h">원장이 직접 쓰고 찍습니다</h2>
-          <p className="sec-lead">진료실에서 다 못 한 설명을 블로그 글과 영상으로 정리하고 있습니다.</p>
+          <h2 className="sec-h">영상과 칼럼으로 먼저 만나보세요</h2>
+          <p className="sec-lead">박성빈 원장이 출연한 건강 영상과, 진료실에서 다 못 한 설명을 정리한 블로그 칼럼입니다.</p>
+          <div className="videos">
+            {videos.map((v) => (
+              <Video key={v.id} v={v} />
+            ))}
+          </div>
           <div className="media">
             <a className="media-card" href={site.blog} target="_blank" rel="noopener noreferrer">
               <span className="media-kind">네이버 블로그</span>

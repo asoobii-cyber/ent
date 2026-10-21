@@ -1,5 +1,5 @@
 // 병원 기본 정보 — 여기 값만 바꾸면 사이트 전체(화면·검색 메타·구조화 데이터)에 반영됩니다.
-// 【확인】 표시는 개원 전에 실제 값으로 바꿔야 하는 항목입니다.
+// 값이 빈 문자열('')인 항목은 화면에서 자동으로 숨겨집니다. 정해지면 채워 넣으세요.
 
 export const site = {
   name: '고려이비인후과',
@@ -9,24 +9,24 @@ export const site = {
   openDate: '2026-12-28',
   openDateLabel: '2026년 12월 28일',
 
-  phone: '042-000-0000', // 【확인】 대표 전화
-  naverBooking: 'https://booking.naver.com/', // 【확인】 네이버예약 상품 링크
-  kakao: 'https://pf.kakao.com/', // 【확인】 카카오톡 채널 링크
-  naverMap: 'https://map.naver.com/', // 【확인】 네이버 지도 장소 링크
+  phone: '010-2320-1543', // 대표 전화 개통 전까지 병원 휴대폰
+  naverBooking: '', // 네이버예약 상품 링크 (비어 있으면 예약 버튼 대신 전화 버튼)
+  kakao: '', // 카카오톡 채널 링크
+  naverMap: '', // 네이버 지도 장소 링크
   blog: 'https://blog.naver.com/entwarriors',
   youtube: 'https://www.youtube.com/@%EA%B3%A0%EB%A0%A4%EC%9D%B4%EB%B9%84%EC%9D%B8%ED%9B%84%EA%B3%BC%EC%9D%98%EC%9B%90',
-  naverPlace: 'https://m.place.naver.com/', // 【확인】 네이버 플레이스 링크
+  naverPlace: '', // 네이버 플레이스 링크
 
   address: {
-    full: '대전광역시 서구 관저동 【상세주소】 3층 304–307호',
-    street: '【도로명 주소】 3층 304–307호',
+    full: '대전광역시 서구 관저동, 기존 대전서울아산이비인후과 자리 3층 304–307호',
+    street: '관저동 3층 304–307호', // 도로명 주소 확정 시 교체
     locality: '대전광역시 서구',
     region: '대전광역시',
-    postalCode: '35000', // 【확인】
-    geo: { lat: 36.2995, lng: 127.3375 }, // 【확인】 관저동 대략 좌표
+    postalCode: '', // 우편번호
+    geo: null as { lat: number; lng: number } | null, // 좌표 확정 시 { lat: , lng: }
   },
-  parking: '건물 주차장 이용 가능 (【확인】 무료 시간)',
-  transit: '관저동 【정류장명】 정류장 하차 후 도보 【 】분',
+  parking: '', // 예: '건물 주차장 2시간 무료'
+  transit: '', // 예: '관저동 ○○ 정류장 하차 후 도보 3분'
 
   doctor: {
     name: '박성빈',
@@ -91,10 +91,26 @@ export const hours: HoursRow[] = [
   {
     days: '일요일 · 공휴일',
     dayCodes: ['Sunday', 'PublicHolidays'],
-    open: '08:30', // 【확인】 08:30 / 09:00
+    open: '08:30',
     close: '13:00',
     breaks: [],
   },
 ]
 
 export const hoursFootnote = '접수 마감 시간과 명절 단축진료는 공지사항으로 안내드립니다.'
+
+// 원장 출연 영상 (출연 채널에서 사용 허락 받음). condition은 함께 보여줄 질환 페이지 slug.
+export const videos = [
+  {
+    id: 'ky_IFGjxx4o',
+    title: '자려고 마신 술 한잔, 수면무호흡증을 키우는 이유',
+    channel: '건강의학전문채널 하이닥',
+    condition: 'sleep-apnea',
+  },
+  {
+    id: 'JoKzZ1YkWQQ',
+    title: '빙글빙글 어지럼증 원인 이석증, 집에서 혼자 치료하면 위험한 이유',
+    channel: '건강의학전문채널 하이닥',
+    condition: 'bppv',
+  },
+]

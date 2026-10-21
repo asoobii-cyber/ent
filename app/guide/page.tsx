@@ -61,9 +61,9 @@ export default function Guide() {
               </table>
             </div>
             <div className="hero-actions">
-              <a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
-                네이버예약 하기
-              </a>
+              {site.naverBooking && (
+<a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">네이버예약 하기</a>
+)}
               <a className="btn btn-ghost" href={`tel:${site.phone}`}>
                 전화 {site.phone}
               </a>
@@ -88,14 +88,18 @@ export default function Guide() {
                 <dt>주소</dt>
                 <dd>{site.address.full}</dd>
               </div>
-              <div>
-                <dt>주차</dt>
-                <dd>{site.parking}</dd>
-              </div>
-              <div>
-                <dt>대중교통</dt>
-                <dd>{site.transit}</dd>
-              </div>
+              {site.parking && (
+<div>
+<dt>주차</dt>
+<dd>{site.parking}</dd>
+</div>
+)}
+              {site.transit && (
+<div>
+<dt>대중교통</dt>
+<dd>{site.transit}</dd>
+</div>
+)}
               <div>
                 <dt>전화</dt>
                 <dd>
@@ -103,13 +107,10 @@ export default function Guide() {
                 </dd>
               </div>
             </dl>
-            <div className="placeholder" style={{ marginTop: 20 }}>
-              네이버 지도 퍼가기 코드 또는 약도 이미지를 넣을 자리입니다
-            </div>
             <div className="hero-actions">
-              <a className="btn btn-ghost" href={site.naverMap} target="_blank" rel="noopener noreferrer">
-                네이버 지도에서 길찾기
-              </a>
+              {site.naverMap && (
+<a className="btn btn-ghost" href={site.naverMap} target="_blank" rel="noopener noreferrer">네이버 지도에서 길찾기</a>
+)}
             </div>
           </section>
 
@@ -120,7 +121,7 @@ export default function Guide() {
               안내합니다.
             </p>
             <p className="notice" style={{ marginTop: 16 }}>
-              【확인】 개원 전 확정된 비급여 항목과 금액표를 여기에 넣습니다.
+              비급여 항목과 금액은 개원 전에 이 페이지에 게시합니다.
             </p>
           </section>
 
