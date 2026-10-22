@@ -1,7 +1,7 @@
 // 검색엔진·AI 검색이 읽는 구조화 데이터(schema.org JSON-LD)
 import type { Center, Condition, Faq } from './content'
 import { centers } from './content'
-import { hours, site } from './site'
+import { hours, press, site } from './site'
 
 const abs = (path: string) => new URL(path, site.url).toString()
 export const clinicId = `${site.url}/#clinic`
@@ -49,6 +49,12 @@ export function doctorSchema() {
     medicalSpecialty: 'https://schema.org/Otolaryngologic',
     image: abs(site.doctor.photo),
     worksFor: { '@id': clinicId },
+    subjectOf: press.map((p) => ({
+      '@type': p.type === 'video' ? 'VideoObject' : 'NewsArticle',
+      name: p.title,
+      url: p.url,
+      publisher: { '@type': 'Organization', name: p.outlet },
+    })),
     url: abs('/about/doctor/'),
   }
 }

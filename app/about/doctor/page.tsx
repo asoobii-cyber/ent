@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { JsonLd, PageHero } from '@/components/ui'
 import { breadcrumbSchema, doctorSchema } from '@/lib/schema'
-import { site } from '@/lib/site'
+import { certs, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: `${site.doctor.name} 원장 소개`,
@@ -40,6 +40,24 @@ export default function Doctor() {
                 </section>
               ))}
             </div>
+            {certs.length > 0 && (
+              <section className="hist-group" style={{ marginTop: 8 }}>
+                <h3 className="hist-title">학회 교육과정 수료</h3>
+                <div className="certs">
+                  {certs.map((c) => (
+                    <figure key={c.title} className="cert">
+                      {c.image && <img src={c.image} alt={`${c.title} 수료패`} loading="lazy" />}
+                      <figcaption>
+                        <span className="cert-title">{c.title}</span>
+                        {(c.issuer || c.year) && (
+                          <span className="cert-issuer">{[c.issuer, c.year].filter(Boolean).join(' · ')}</span>
+                        )}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
       </section>

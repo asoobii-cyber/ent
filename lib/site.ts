@@ -93,7 +93,7 @@ export const hours: HoursRow[] = [
   {
     days: '일요일 · 공휴일',
     dayCodes: ['Sunday', 'PublicHolidays'],
-    open: '08:30',
+    open: '09:00',
     close: '13:00',
     breaks: [],
   },
@@ -115,4 +115,32 @@ export const videos = [
     channel: '건강의학전문채널 하이닥',
     condition: 'bppv',
   },
+]
+
+// 언론 보도·자문 기사. 새 기사가 나오면 맨 위에 한 줄 추가하세요. (type: 'article' 기사 / 'video' 방송·영상 출연)
+// 비어 있으면 홈의 '언론 보도' 칸은 자동으로 숨겨집니다.
+export type Press = { title: string; outlet: string; date: string; url: string; type: 'article' | 'video' }
+export const press: Press[] = [
+  {
+    title: '자려고 마신 술 한잔, 수면무호흡증을 키우는 이유',
+    outlet: '하이닥',
+    date: '2026',
+    url: 'https://www.youtube.com/watch?v=ky_IFGjxx4o',
+    type: 'video',
+  },
+  {
+    title: '빙글빙글 어지럼증 원인 이석증, 집에서 혼자 치료하면 위험한 이유',
+    outlet: '하이닥',
+    date: '2026',
+    url: 'https://www.youtube.com/watch?v=JoKzZ1YkWQQ',
+    type: 'video',
+  },
+]
+
+// 학회 교육과정 수료·인증. image에 수료패 사진 경로를 넣으면 사진과 함께 보입니다 (예: '/images/cert-dizziness.webp').
+export type Cert = { title: string; issuer: string; year?: string; image?: string } // issuer: 발급 학회명 (비어 있으면 생략)
+export const certs: Cert[] = [
+  { title: '어지럼증 전문가 과정 수료', issuer: '' },
+  { title: '이명 전문가 과정 수료', issuer: '' },
+  { title: '보청기 전문가 과정 수료', issuer: '' },
 ]

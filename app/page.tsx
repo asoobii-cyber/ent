@@ -3,7 +3,7 @@ import NoticePopup from '@/components/NoticePopup'
 import { getHomeVideos } from '@/lib/youtube'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
-import { site } from '@/lib/site'
+import { press, site } from '@/lib/site'
 
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
@@ -34,10 +34,16 @@ export default async function Home() {
               감기와 비염은 예약 없이, <span className="nowrap">월·수·금</span>은 밤 9시까지 진료합니다.
             </p>
             <div className="hero-actions">
-              {site.naverBooking && (
-<a className="btn btn-solid" href={site.naverBooking} target="_blank" rel="noopener noreferrer">네이버예약</a>
-)}
-              <a className={`btn ${site.naverBooking ? 'btn-ghost' : 'btn-solid'}`} href={`tel:${site.phone}`}>
+              {site.naverBooking ? (
+                <a className="btn btn-naver" href={site.naverBooking} target="_blank" rel="noopener noreferrer">
+                  <span className="naver-n" aria-hidden="true">N</span>네이버예약
+                </a>
+              ) : (
+                <span className="btn btn-naver is-soon" aria-disabled="true">
+                  <span className="naver-n" aria-hidden="true">N</span>네이버예약 <small>12월 오픈</small>
+                </span>
+              )}
+              <a className="btn btn-solid" href={`tel:${site.phone}`}>
                 전화 {site.phone}
               </a>
             </div>
@@ -102,6 +108,29 @@ export default async function Home() {
           </ul>
         </div>
       </section>
+
+      {press.length > 0 && (
+        <section className="sec sec-press" aria-labelledby="press-title">
+          <div className="wrap">
+            <h2 id="press-title" className="sec-h">언론 보도 · 자문</h2>
+            <p className="sec-lead">박성빈 원장이 출연하거나 자문한 기사와 방송입니다.</p>
+            <ul className="press">
+              {press.map((p) => (
+                <li key={p.url}>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer">
+                    <span className="press-meta">
+                      <span className="press-outlet">{p.outlet}</span>
+                      <span className="press-type">{p.type === 'video' ? '영상 출연' : '기사 자문'}</span>
+                      <span className="press-date">{p.date}</span>
+                    </span>
+                    <span className="press-title">{p.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="sec">
         <div className="wrap split">
