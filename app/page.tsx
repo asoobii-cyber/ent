@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import NoticePopup from '@/components/NoticePopup'
 import { getHomeVideos } from '@/lib/youtube'
@@ -11,6 +12,8 @@ const principles = [
   { t: '청력검사와 보청기는 청각사가', b: '청각사 2명이 청력검사와 보청기 상담·피팅·사후관리를 맡고, 검사 결과는 진료한 전문의가 함께 확인합니다.' },
   { t: '오래 관리해야 하는 진료는 끝까지', b: '보청기 사후관리, 양압기 적응, 3년 면역치료처럼 시간이 걸리는 치료는 일정을 정해 다시 확인합니다.' },
 ]
+
+export const metadata: Metadata = { alternates: { canonical: '/' } }
 
 export default async function Home() {
   const yt = await getHomeVideos()

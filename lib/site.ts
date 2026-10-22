@@ -5,7 +5,7 @@ export const site = {
   name: '고려이비인후과',
   legalName: '고려이비인후과의원',
   nameEn: 'Korea ENT Clinic',
-  url: 'https://djkoreaent.com',
+  url: 'https://www.djkoreaent.co.kr',
   openDate: '2026-12-28',
   openDateLabel: '2026년 12월 28일',
 
