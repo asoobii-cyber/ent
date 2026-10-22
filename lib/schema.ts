@@ -53,6 +53,7 @@ export function doctorSchema() {
     memberOf: site.doctor.memberOf.map((n) => ({ '@type': 'MedicalOrganization', name: n })),
     hasCredential: [
       { '@type': 'EducationalOccupationalCredential', credentialCategory: '전문의 자격', name: '이비인후과 전문의', recognizedBy: { '@type': 'GovernmentOrganization', name: '보건복지부' } },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: '학회 인증', name: '수면 전문의', recognizedBy: { '@type': 'MedicalOrganization', name: '대한수면연구학회' } },
       ...certs.map((c) => ({
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: '교육과정 수료',
