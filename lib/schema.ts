@@ -1,7 +1,7 @@
 // 검색엔진·AI 검색이 읽는 구조화 데이터(schema.org JSON-LD)
 import type { Center, Condition, Faq } from './content'
 import { centers } from './content'
-import { hours, press, site } from './site'
+import { certs, hours, press, site } from './site'
 
 const abs = (path: string) => new URL(path, site.url).toString()
 export const clinicId = `${site.url}/#clinic`
@@ -49,6 +49,17 @@ export function doctorSchema() {
     medicalSpecialty: 'https://schema.org/Otolaryngologic',
     image: abs(site.doctor.photo),
     worksFor: { '@id': clinicId },
+    alumniOf: site.doctor.alumniOf.map((n) => ({ '@type': 'CollegeOrUniversity', name: n })),
+    memberOf: site.doctor.memberOf.map((n) => ({ '@type': 'MedicalOrganization', name: n })),
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: '전문의 자격', name: '이비인후과 전문의', recognizedBy: { '@type': 'GovernmentOrganization', name: '보건복지부' } },
+      ...certs.map((c) => ({
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: '교육과정 수료',
+        name: c.title,
+        ...(c.issuer && { recognizedBy: { '@type': 'MedicalOrganization', name: c.issuer } }),
+      })),
+    ],
     subjectOf: press.map((p) => ({
       '@type': p.type === 'video' ? 'VideoObject' : 'NewsArticle',
       name: p.title,

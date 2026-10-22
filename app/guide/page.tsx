@@ -86,7 +86,10 @@ export default function Guide() {
             <dl className="addr-list">
               <div>
                 <dt>주소</dt>
-                <dd>{site.address.full}</dd>
+                <dd>
+                  {site.address.full}
+                  {site.address.note && <span className="addr-note">{site.address.note}</span>}
+                </dd>
               </div>
               {site.parking && (
 <div>

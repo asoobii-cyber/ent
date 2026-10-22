@@ -414,3 +414,5 @@ ul, ol { padding: 0; list-style: none; }
 .cert img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; margin-bottom: 12px; background: #fff; }
 .cert-title { display: block; font-weight: 700; font-size: 16px; line-height: 1.5; }
 .cert-issuer { display: block; margin-top: 2px; font-size: 14px; color: var(--text-mute); }
+
+.addr-note { display: block; margin-top: 2px; color: var(--crimson); font-weight: 600; }
