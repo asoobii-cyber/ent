@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { 'max-snippet': -1, 'max-image-preview': 'large' } },
   verification: {
     // 【확인】 서치콘솔·서치어드바이저 등록 후 토큰 입력
-    // google: '',
+    google: 'eOtQJBv1eSAcugsjUNxXMgV1HhObQsT8DZAkYQVhOvc',
     // other: { 'naver-site-verification': '' },
   },
 }
