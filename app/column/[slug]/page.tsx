@@ -132,7 +132,7 @@ export default async function ColumnPage({ params }: Props) {
           </section>
 
           {col.sections.map((s) => (
-            <section key={s.id} id={s.id}>
+            <section key={s.id} id={s.id} className={s.id === 'doctor' ? 'col-doctor' : undefined}>
               <h2 className="col-h">{s.heading}</h2>
               <Blocks blocks={s.blocks} />
             </section>
