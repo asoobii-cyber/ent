@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!d) return {}
   const url = `/${center}/${slug}/`
   return {
-    title: `${d.name} 증상·검사·치료`,
+    title: `대전 ${d.name} 증상·검사·치료`,
     description: d.summary,
     keywords: [d.name, ...d.alt, `대전 ${d.name}`, `관저동 ${d.name}`],
     alternates: { canonical: url },
-    openGraph: { type: 'article', title: `${d.name} 증상·검사·치료`, description: d.summary, url },
+    openGraph: { type: 'article', title: `대전 ${d.name} 증상·검사·치료`, description: d.summary, url },
   }
 }
 
