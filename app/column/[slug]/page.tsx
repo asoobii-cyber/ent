@@ -38,18 +38,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const dot = (d: string) => d.replace(/-/g, '.')
 
+// **굵게**, ==형광펜 밑줄== 표시
+function rich(text: string) {
+  return text.split(/(\*\*[^*]+\*\*|==[^=]+==)/).map((t, i) =>
+    t.startsWith('**') ? (
+      <strong key={i}>{t.slice(2, -2)}</strong>
+    ) : t.startsWith('==') ? (
+      <mark key={i} className="hl">
+        {t.slice(2, -2)}
+      </mark>
+    ) : (
+      t
+    ),
+  )
+}
+
 function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <>
       {blocks.map((b, i) => {
         switch (b.type) {
           case 'p':
-            return <p key={i}>{b.text}</p>
+            return <p key={i}>{rich(b.text)}</p>
           case 'list':
             return (
               <ul key={i} className="ticks col-list">
                 {b.items.map((t) => (
-                  <li key={t}>{t}</li>
+                  <li key={t}>{rich(t)}</li>
                 ))}
               </ul>
             )
@@ -109,7 +124,7 @@ export default async function ColumnPage({ params }: Props) {
         </nav>
         <article className="body col-body">
           <section id="summary">
-            <p className="answer">{col.summary}</p>
+            <p className="answer">{rich(col.summary)}</p>
             <figure className="col-fig col-cover">
               <img src={col.cover.src} alt={col.cover.alt} width={col.cover.w} height={col.cover.h} />
             </figure>
@@ -118,7 +133,7 @@ export default async function ColumnPage({ params }: Props) {
 
           {col.sections.map((s) => (
             <section key={s.id} id={s.id}>
-              <h2>{s.heading}</h2>
+              <h2 className="col-h">{s.heading}</h2>
               <Blocks blocks={s.blocks} />
             </section>
           ))}
@@ -127,7 +142,7 @@ export default async function ColumnPage({ params }: Props) {
             <h2>3줄 요약</h2>
             <ol className="col-points">
               {col.keyPoints.map((k) => (
-                <li key={k}>{k}</li>
+                <li key={k}>{rich(k)}</li>
               ))}
             </ol>
           </section>

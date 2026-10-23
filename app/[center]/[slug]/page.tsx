@@ -5,7 +5,7 @@ import Video from '@/components/Video'
 import { BookingBox, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
 import { REVIEWED, withIran, conditions, conditionsOf, getCenter, getCondition } from '@/lib/content'
 import { videos } from '@/lib/site'
-import { columnsFor } from '@/lib/columns'
+import { columnsFor, plain } from '@/lib/columns'
 import { breadcrumbSchema, conditionPageSchema, faqSchema } from '@/lib/schema'
 
 export const dynamicParams = false
@@ -131,7 +131,7 @@ export default async function ConditionPage({ params }: Props) {
                   <li key={col.slug}>
                     <Link href={`/column/${col.slug}/`}>
                       <span className="cond-name">{col.title}</span>
-                      <p className="cond-sum">{col.summary}</p>
+                      <p className="cond-sum">{plain(col.summary)}</p>
                     </Link>
                   </li>
                 ))}

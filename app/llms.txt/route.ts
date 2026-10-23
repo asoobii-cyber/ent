@@ -1,7 +1,7 @@
 // /llms.txt — AI 검색 서비스가 병원 정보를 빠르게 파악하도록 요약한 텍스트 파일
 import { centers, conditions } from '@/lib/content'
 import { hours, site } from '@/lib/site'
-import { columns } from '@/lib/columns'
+import { columns, plain } from '@/lib/columns'
 
 export const dynamic = 'force-static'
 
@@ -35,7 +35,7 @@ export function GET() {
       '',
     ]),
     ...(columns.length
-      ? ['## 건강 칼럼', ...columns.map((c) => `- [${c.title}](${u(`/column/${c.slug}/`)}): ${c.summary}`), '']
+      ? ['## 건강 칼럼', ...columns.map((c) => `- [${c.title}](${u(`/column/${c.slug}/`)}): ${plain(c.summary)}`), '']
       : []),
     '## 기타',
     `- [자주 묻는 질문](${u('/faq/')})`,

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { JsonLd, PageHero } from '@/components/ui'
-import { columns } from '@/lib/columns'
+import { columns, plain } from '@/lib/columns'
 import { breadcrumbSchema } from '@/lib/schema'
 import { site } from '@/lib/site'
 
@@ -27,7 +27,7 @@ export default function ColumnList() {
                   <img src={c.cover.src} alt="" width={c.cover.w} height={c.cover.h} loading="lazy" />
                   <span className="col-card-topic">{c.topic}</span>
                   <span className="col-card-title">{c.title}</span>
-                  <span className="col-card-sum">{c.summary}</span>
+                  <span className="col-card-sum">{plain(c.summary)}</span>
                   <span className="col-card-date">{c.date.replace(/-/g, '.')}</span>
                 </Link>
               </li>
