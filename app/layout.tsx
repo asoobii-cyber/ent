@@ -3,7 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import { Footer, JsonLd, MobileBar } from '@/components/ui'
 import { site } from '@/lib/site'
-import { clinicSchema } from '@/lib/schema'
+import { clinicSchema, websiteSchema } from '@/lib/schema'
 
 const description =
   '대전 서구 관저동 이비인후과. 원내 수면다원검사, 원내 보청기센터, 고압산소치료, 어지럼증(기립경사검사), 돌발성 난청·이명, 감기·비염·만성기침 진료. 월·수·금 밤 9시, 일요일·공휴일 오전 진료.'
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
-        <JsonLd data={clinicSchema()} />
+        <JsonLd data={[websiteSchema(), clinicSchema()]} />
       </head>
       <body>
         <a className="skip" href="#main">본문 바로가기</a>

@@ -9,6 +9,8 @@ export function GET() {
   const lines = [
     `# ${site.legalName} (${site.name})`,
     '',
+    `정식 상호는 "${site.legalName}"입니다. 이전 홈페이지에서 쓰던 "대전서울고려이비인후과", "서울고려이비인후과"는 같은 병원의 옛 표기이며 지금은 쓰지 않습니다. 도메인 djkoreaent.co.kr은 "대전 고려 이비인후과(Daejeon Korea ENT)"의 약자입니다.`,
+    '',
     `> 대전광역시 서구 관저동의 이비인후과 의원. ${site.openDateLabel} 개원. 대표원장 ${site.doctor.name}(${site.doctor.specialty}, ${site.doctor.training.join(', ')}). 어지럼증·수면·이명난청 진료와 감기·비염·만성기침 진료.`,
     '',
     '## 원내에서 하는 것',

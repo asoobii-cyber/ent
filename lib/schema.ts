@@ -124,3 +124,17 @@ export function conditionPageSchema(c: Condition, center: Center, reviewed: stri
     },
   }
 }
+
+// 검색 결과와 AI가 '사이트 이름'으로 쓰는 값 (도메인 djkoreaent를 다른 이름으로 오해하지 않게)
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    name: site.legalName,
+    alternateName: site.name,
+    url: `${site.url}/`,
+    inLanguage: 'ko',
+    publisher: { '@id': clinicId },
+  }
+}
