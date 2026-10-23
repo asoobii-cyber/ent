@@ -465,3 +465,6 @@ ul, ol { padding: 0; list-style: none; }
 #points h2::before { content: '✔ '; color: var(--crimson); }
 #points h2::after { content: ' ✔'; color: var(--crimson); }
 #points h2 { text-align: center; }
+
+/* 펼침 메뉴는 PC에서만 */
+@media (max-width: 1099px) { .mega { display: none !important; } }

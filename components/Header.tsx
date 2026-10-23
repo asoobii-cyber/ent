@@ -33,6 +33,8 @@ export default function Header() {
   }, [mobile])
 
   const enter = (i: number) => {
+    // 펼침 메뉴는 PC(가로 1100px 이상)에서만 — 휴대폰·태블릿에서 저절로 열리는 것 방지
+    if (typeof window !== 'undefined' && !window.matchMedia('(min-width: 1100px) and (hover: hover)').matches) return
     if (closeTimer.current) clearTimeout(closeTimer.current)
     setOpen(i)
   }
