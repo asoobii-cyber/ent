@@ -1,3 +1,4 @@
+import { columns } from './columns'
 import { centers, conditionsOf } from './content'
 
 export type NavGroup = {
@@ -27,6 +28,19 @@ export const nav: NavGroup[] = [
       ...conditionsOf(c.slug).map((d) => ({ label: d.name, href: `/${c.slug}/${d.slug}/` })),
     ],
   })),
+  ...(columns.length > 0
+    ? [
+        {
+          label: '건강 칼럼',
+          href: '/column/',
+          blurb: '원장이 진료실에서 자주 받는 질문을 정리합니다.',
+          links: [
+            { label: '전체 칼럼', href: '/column/' },
+            ...columns.slice(0, 5).map((c) => ({ label: c.topic, href: `/column/${c.slug}/` })),
+          ],
+        },
+      ]
+    : []),
   {
     label: '이용 안내',
     href: '/guide/',

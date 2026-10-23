@@ -2,6 +2,7 @@
 import type { Center, Condition, Faq } from './content'
 import { centers } from './content'
 import { certs, hours, press, site } from './site'
+import type { Column } from './columns'
 
 const abs = (path: string) => new URL(path, site.url).toString()
 export const clinicId = `${site.url}/#clinic`
@@ -136,5 +137,30 @@ export function websiteSchema() {
     url: `${site.url}/`,
     inLanguage: 'ko',
     publisher: { '@id': clinicId },
+  }
+}
+
+export function columnSchema(col: Column) {
+  const url = abs(`/column/${col.slug}/`)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    '@id': url,
+    url,
+    headline: col.title,
+    name: col.title,
+    description: col.description,
+    image: abs(col.cover.src),
+    inLanguage: 'ko',
+    datePublished: col.date,
+    dateModified: col.reviewed,
+    lastReviewed: col.reviewed,
+    author: { '@id': doctorId },
+    reviewedBy: { '@id': doctorId },
+    publisher: { '@id': clinicId },
+    isPartOf: { '@id': `${site.url}/#website` },
+    audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+    about: { '@type': 'MedicalCondition', name: col.topic },
+    abstract: col.summary,
   }
 }

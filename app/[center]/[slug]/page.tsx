@@ -5,6 +5,7 @@ import Video from '@/components/Video'
 import { BookingBox, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
 import { REVIEWED, withIran, conditions, conditionsOf, getCenter, getCondition } from '@/lib/content'
 import { videos } from '@/lib/site'
+import { columnsFor } from '@/lib/columns'
 import { breadcrumbSchema, conditionPageSchema, faqSchema } from '@/lib/schema'
 
 export const dynamicParams = false
@@ -121,6 +122,22 @@ export default async function ConditionPage({ params }: Props) {
               <Video v={v} />
             </section>
           ))}
+
+          {columnsFor(d.slug).length > 0 && (
+            <section id="column">
+              <h2>관련 칼럼</h2>
+              <ul className="cond-list">
+                {columnsFor(d.slug).map((col) => (
+                  <li key={col.slug}>
+                    <Link href={`/column/${col.slug}/`}>
+                      <span className="cond-name">{col.title}</span>
+                      <p className="cond-sum">{col.summary}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {d.faqs.length > 0 && (
             <section id="faq">

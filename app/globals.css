@@ -416,3 +416,36 @@ ul, ol { padding: 0; list-style: none; }
 .cert-issuer { display: block; margin-top: 2px; font-size: 14px; color: var(--text-mute); }
 
 .addr-note { display: block; margin-top: 2px; color: var(--crimson); font-weight: 600; }
+
+/* ── 건강 칼럼 */
+.col-meta { margin-top: 14px; font-size: 15px; color: var(--text-mute); }
+.col-body .answer { margin-bottom: 28px; }
+.col-fig { margin: 28px 0; }
+.col-fig img { width: 100%; height: auto; border-radius: var(--radius-l); background: var(--greige); }
+.col-cover img { max-width: 560px; }
+.col-body .col-list { margin: 18px 0; }
+.col-points { counter-reset: kp; display: grid; gap: 12px; }
+.col-points li { counter-increment: kp; position: relative; padding: 18px 20px 18px 60px; background: var(--greige); border-radius: var(--radius-s); }
+.col-points li::before { content: counter(kp); position: absolute; left: 18px; top: 17px; width: 28px; height: 28px; border-radius: 50%; background: var(--crimson); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+.col-more { margin-top: 64px; }
+.col-grid { display: grid; gap: 28px; }
+@media (min-width: 700px) { .col-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .col-grid { grid-template-columns: repeat(3, 1fr); } }
+.col-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
+.col-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-l); background: var(--greige); margin-bottom: 8px; }
+.col-card-topic { font-size: 14px; font-weight: 600; color: var(--crimson); }
+.col-card-title { font-size: 20px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.4; }
+.col-card-sum { color: var(--text-mute); font-size: 15.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.col-card-date { font-size: 14px; color: var(--text-mute); }
+.col-card:hover .col-card-title { color: var(--crimson); }
+.col-fig img { max-height: 540px; width: auto; max-width: 100%; margin: 0 auto; display: block; }
+
+/* 메뉴 7개 — 줄바꿈 방지 */
+.gnb-link { white-space: nowrap; }
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .gnb-link { padding: 0 10px; font-size: 15px; }
+  .gnb-link.is-active::after, .gnb-link.is-open::after { left: 10px; right: 10px; }
+  .hd-call { display: none !important; }
+}
+.hd-actions .btn, .hd-call { white-space: nowrap; }
+@media (min-width: 1100px) { .hd-call { display: none !important; } }

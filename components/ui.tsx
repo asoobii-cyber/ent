@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Center, Faq, Motif as MotifKind } from '@/lib/content'
 import { centers } from '@/lib/content'
 import { hours, hoursFootnote, site } from '@/lib/site'
+import { columns } from '@/lib/columns'
 
 export function JsonLd({ data }: { data: object | object[] }) {
   return (
@@ -165,8 +166,13 @@ export function Footer() {
             <li>
               <Link href="/faq/">자주 묻는 질문</Link>
             </li>
+            {columns.length > 0 && (
+              <li>
+                <Link href="/column/">건강 칼럼</Link>
+              </li>
+            )}
             <li>
-              <a href={site.blog} target="_blank" rel="noopener noreferrer">건강 칼럼 (네이버 블로그)</a>
+              <a href={site.blog} target="_blank" rel="noopener noreferrer">네이버 블로그</a>
             </li>
             <li>
               <a href={site.youtube} target="_blank" rel="noopener noreferrer">진료 영상 (유튜브)</a>
