@@ -19,12 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const d = getCondition(center, slug)
   if (!d) return {}
   const url = `/${center}/${slug}/`
+  const title = d.seoTitle ?? `대전 ${d.name} 증상·검사·치료`
   return {
-    title: `대전 ${d.name} 증상·검사·치료`,
+    title,
     description: d.summary,
     keywords: [d.name, ...d.alt, `대전 ${d.name}`, `관저동 ${d.name}`],
     alternates: { canonical: url },
-    openGraph: { type: 'article', title: `대전 ${d.name} 증상·검사·치료`, description: d.summary, url },
+    openGraph: { type: 'article', title, description: d.summary, url },
   }
 }
 

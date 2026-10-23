@@ -26,6 +26,7 @@ export type Condition = {
   name: string
   alt: string[]
   summary: string // AI 검색이 그대로 인용하기 좋은 한두 문장 요약
+  seoTitle?: string // 검색 제목 (없으면 '대전 ○○ 증상·검사·치료')
   about: string[]
   symptoms: string[]
   seeSoon: string[]
@@ -329,6 +330,7 @@ export const conditions: Condition[] = [
   },
   {
     slug: 'hyperbaric-oxygen',
+    seoTitle: '대전 고압산소치료 · 돌발성 난청',
     center: 'hearing',
     name: '고압산소치료',
     alt: ['고압산소', '고압산소 챔버', 'HBOT'],
@@ -398,6 +400,7 @@ export const conditions: Condition[] = [
   // ── 수면: 수면다원검사
   {
     slug: 'polysomnography',
+    seoTitle: '대전 수면다원검사 · 코골이 수면무호흡 검사',
     center: 'sleep',
     name: '수면다원검사',
     alt: ['수면다원검사', '수면검사', 'PSG', '코골이 검사', '수면무호흡 검사'],
@@ -426,6 +429,7 @@ export const conditions: Condition[] = [
   // ── 이명·난청: 노인성 난청
   {
     slug: 'presbycusis',
+    seoTitle: '대전 노인성 난청 · 보청기 상담',
     center: 'hearing',
     name: '노인성 난청',
     alt: ['노인성 난청', '노화성 난청', '감각신경성 난청', '귀가 어두움'],
@@ -452,6 +456,7 @@ export const conditions: Condition[] = [
   // ── 이명·난청: 보청기 지원금
   {
     slug: 'hearing-aid-subsidy',
+    seoTitle: '대전 보청기 지원금 · 청각장애 보청기 건강보험',
     center: 'hearing',
     name: '보청기 건강보험 지원',
     alt: ['보청기 지원금', '보청기 정부지원', '보청기 국가지원', '청각장애 보청기 급여', '보청기 보조금'],
