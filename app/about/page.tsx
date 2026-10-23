@@ -59,7 +59,7 @@ export default function About() {
           </section>
           <section>
             <h2>공간</h2>
-            <p>진료실 3곳, 방음 청력검사실, 어지럼증 검사실, 1인실 수액실, 고압산소치료실을 갖춥니다.</p>
+            <p>진료실 3곳, 방음 청력검사실, 보청기센터, 수면검사실, 어지럼증 검사실, 1인실 수액실, 고압산소치료실을 갖춥니다.</p>
             <div className="gallery">
               {[
                 ['/images/entrance.webp', '입구'],

@@ -6,7 +6,7 @@ import { site } from '@/lib/site'
 import { clinicSchema } from '@/lib/schema'
 
 const description =
-  '대전 서구 관저동 이비인후과. 어지럼증(기립경사검사), 코골이·수면무호흡, 돌발성 난청·이명·보청기, 고압산소치료, 감기·비염·만성기침 진료. 월·수·금 밤 9시, 일요일·공휴일 오전 진료.'
+  '대전 서구 관저동 이비인후과. 원내 수면다원검사, 원내 보청기센터, 고압산소치료, 어지럼증(기립경사검사), 돌발성 난청·이명, 감기·비염·만성기침 진료. 월·수·금 밤 9시, 일요일·공휴일 오전 진료.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
