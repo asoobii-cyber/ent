@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BookingBox, FaqList, JsonLd, PageHero } from '@/components/ui'
-import { type Block, columns, getColumn } from '@/lib/columns'
+import { type Block, columns, getColumn, plain } from '@/lib/columns'
 import { conditions, getCenter } from '@/lib/content'
 import { breadcrumbSchema, columnSchema, faqSchema } from '@/lib/schema'
 import { site } from '@/lib/site'
@@ -38,10 +38,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const dot = (d: string) => d.replace(/-/g, '.')
 
-// **굵게**, ==형광펜 밑줄== 표시
+// **굵게**, ==크림슨 강조==, ++형광펜++ 표시
 function rich(text: string) {
-  return text.split(/(\*\*[^*]+\*\*|==[^=]+==)/).map((t, i) =>
-    t.startsWith('**') ? (
+  return text.split(/(\*\*[^*]+\*\*|==[^=]+==|\+\+[^+]+\+\+)/).map((t, i) =>
+    t.startsWith('++') ? (
+      <mark key={i} className="mk">
+        {t.slice(2, -2)}
+      </mark>
+    ) : t.startsWith('**') ? (
       <strong key={i}>{t.slice(2, -2)}</strong>
     ) : t.startsWith('==') ? (
       <mark key={i} className="hl">
@@ -117,7 +121,7 @@ export default async function ColumnPage({ params }: Props) {
           <a href="#summary">한눈에 보기</a>
           {col.sections.map((s) => (
             <a key={s.id} href={`#${s.id}`}>
-              {s.heading}
+              {plain(s.heading)}
             </a>
           ))}
           {col.faqs.length > 0 && <a href="#faq">자주 묻는 질문</a>}
@@ -133,7 +137,7 @@ export default async function ColumnPage({ params }: Props) {
 
           {col.sections.map((s) => (
             <section key={s.id} id={s.id} className={s.id === 'doctor' ? 'col-doctor' : undefined}>
-              <h2 className="col-h">{s.heading}</h2>
+              <h2 className="col-h">{rich(s.heading)}</h2>
               <Blocks blocks={s.blocks} />
             </section>
           ))}

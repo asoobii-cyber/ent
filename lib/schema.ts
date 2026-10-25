@@ -161,6 +161,6 @@ export function columnSchema(col: Column) {
     isPartOf: { '@id': `${site.url}/#website` },
     audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
     about: { '@type': 'MedicalCondition', name: col.topic },
-    abstract: col.summary.replace(/\*\*|==/g, ''),
+    abstract: col.summary.replace(/\*\*|==|\+\+/g, ''),
   }
 }

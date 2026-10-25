@@ -468,3 +468,4 @@ ul, ol { padding: 0; list-style: none; }
 
 /* 펼침 메뉴는 PC에서만 */
 @media (max-width: 1099px) { .mega { display: none !important; } }
+.col-body .mk { background: linear-gradient(transparent 45%, #fbe7a1 45%); color: inherit; padding: 0 2px; }
