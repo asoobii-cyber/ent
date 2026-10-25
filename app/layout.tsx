@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import { Footer, JsonLd, MobileBar } from '@/components/ui'
 import { site } from '@/lib/site'
 import { clinicSchema, websiteSchema } from '@/lib/schema'
+import { Analytics } from '@vercel/analytics/next'
 
 const description =
   '대전 서구 관저동 이비인후과. 원내 수면다원검사, 원내 보청기센터, 고압산소치료, 어지럼증(기립경사검사), 돌발성 난청·이명, 감기·비염·만성기침 진료. 월·수·금 밤 9시, 일요일·공휴일 오전 진료.'
@@ -56,6 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <MobileBar />
+        {/* 방문 통계 (쿠키·개인정보 수집 없음) — Vercel 대시보드 Analytics 탭에서 확인 */}
+        <Analytics />
       </body>
     </html>
   )
