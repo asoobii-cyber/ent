@@ -469,3 +469,6 @@ ul, ol { padding: 0; list-style: none; }
 /* 펼침 메뉴는 PC에서만 */
 @media (max-width: 1099px) { .mega { display: none !important; } }
 .col-body .mk { background: linear-gradient(transparent 45%, #fbe7a1 45%); color: inherit; padding: 0 2px; }
+/* 칼럼 썸네일·본문 사진: 원본 비율 유지 (잘림 방지) */
+.col-card img { height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+.col-fig img { height: auto; }
