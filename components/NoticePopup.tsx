@@ -53,9 +53,6 @@ export default function NoticePopup() {
           관저동 <strong>대전서울아산이비인후과</strong>가 있던 자리에서 고려이비인후과로 새롭게 진료를 시작합니다. 위치는 그대로, 같은
           건물 3층입니다.
         </p>
-        <p className="pop-cert">
-          대한이과학회 <strong>어지럼 · 난청-보청기 · 이명</strong> 전문 과정을 수료한 이비인후과 전문의가 진료합니다.
-        </p>
         <div className="pop-actions">
           <Link className="btn btn-solid" href="/guide/#location" onClick={() => setOpen(false)}>
             오시는 길 보기
