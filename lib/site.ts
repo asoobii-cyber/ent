@@ -39,7 +39,7 @@ export const site = {
     // 홈 원장 소개에 배지로 보이는 대표 자격
     alumniOf: ['고려대학교 의과대학', '고려대학교 대학원'],
     memberOf: ['대한이비인후과학회', '대한수면연구학회', '대한평형의학회', '한국이명학회'],
-    badges: ['보건복지부 이비인후과 전문의', '대한수면연구학회 수면 전문의', '대한이과학회 어지럼증 전문가 과정 수료', '대한이과학회 이명 전문가 과정 수료', '대한이과학회 보청기 전문가 과정 수료'],
+    badges: ['보건복지부 이비인후과 전문의', '대한수면연구학회 수면 전문의', '대한이과학회 어지럼 전문가 과정 수료', '대한이과학회 난청-보청기 전문과정 수료', '대한이과학회 이명 전문과정 수료'],
     quote: '환자의 수면의 질, 삶의 질이 근본적으로 개선될 때까지 함께하는 의료를 추구합니다.',
     history: [
       { title: '학력', items: ['고려대학교 의과대학 의학사', '고려대학교 대학원 의학석사'] },
@@ -49,9 +49,9 @@ export const site = {
         items: [
           '보건복지부 인증 이비인후과 전문의',
           '대한수면연구학회 수면 전문의',
-          '대한이과학회 어지럼증 전문가 과정 수료',
-          '대한이과학회 이명 전문가 과정 수료',
-          '대한이과학회 보청기 전문가 과정 수료',
+          '대한이과학회 어지럼 전문가 과정 수료 (2023, KOS-Fellowship on Dizziness)',
+          '대한이과학회 난청-보청기 전문과정 수료 (2025, KOS-HEC)',
+          '대한이과학회 이명 전문과정 수료 (2025, KOS-TEC)',
         ],
       },
       { title: '학회 활동', items: ['대한이비인후과학회 정회원', '대한수면연구학회 정회원', '대한평형의학회 정회원', '한국이명학회 정회원'] },
@@ -141,9 +141,47 @@ export const press: Press[] = [
 ]
 
 // 학회 교육과정 수료·인증. image에 수료패 사진 경로를 넣으면 사진과 함께 보입니다 (예: '/images/cert-dizziness.webp').
-export type Cert = { title: string; issuer: string; year?: string; image?: string } // issuer: 발급 학회명 (비어 있으면 생략)
+// 대한이과학회 전문 과정 수료패 (사진: public/images/certs/). center: 해당 센터 페이지에 함께 표시
+export type Cert = { title: string; issuer: string; en: string; year: string; image: string; center: string; blurb: string }
 export const certs: Cert[] = [
-  { title: '어지럼증 전문가 과정 수료', issuer: '대한이과학회' },
-  { title: '이명 전문가 과정 수료', issuer: '대한이과학회' },
-  { title: '보청기 전문가 과정 수료', issuer: '대한이과학회' },
+  {
+    title: '어지럼 전문가 과정 수료',
+    issuer: '대한이과학회',
+    en: 'KOS-Fellowship on Dizziness',
+    year: '2023',
+    image: '/images/certs/dizziness.webp',
+    center: 'dizziness',
+    blurb: '대한이과학회 어지럼 전문가 과정을 수료한 이비인후과 전문의가 어지럼의 원인을 검사로 나누어 직접 진료합니다.',
+  },
+  {
+    title: '난청-보청기 전문과정 수료',
+    issuer: '대한이과학회',
+    en: 'KOS-HEC (Hearing loss and hearing aid Expert Course)',
+    year: '2025',
+    image: '/images/certs/hearing-aid.webp',
+    center: 'hearing',
+    blurb: '대한이과학회 난청-보청기 전문과정을 수료한 이비인후과 전문의가 청력검사부터 보청기 처방·사후관리까지 직접 챙깁니다.',
+  },
+  {
+    title: '이명 전문과정 수료',
+    issuer: '대한이과학회',
+    en: 'KOS-TEC (Tinnitus Expert Course)',
+    year: '2025',
+    image: '/images/certs/tinnitus.webp',
+    center: 'hearing',
+    blurb: '대한이과학회 이명 전문과정을 수료한 이비인후과 전문의가 이명의 원인과 불편 정도를 검사로 확인하고 관리합니다.',
+  },
 ]
+
+// 질환·센터 페이지에 보여줄 수료패 고르기
+const certByCondition: Record<string, string> = {
+  tinnitus: '이명 전문과정 수료',
+  'hearing-aids': '난청-보청기 전문과정 수료',
+  'hearing-aid-subsidy': '난청-보청기 전문과정 수료',
+  presbycusis: '난청-보청기 전문과정 수료',
+}
+export function certsFor(center: string, condition?: string): Cert[] {
+  if (condition && certByCondition[condition]) return certs.filter((c) => c.title === certByCondition[condition])
+  if (condition && center === 'hearing') return []
+  return certs.filter((c) => c.center === center)
+}

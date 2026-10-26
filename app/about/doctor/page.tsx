@@ -40,24 +40,23 @@ export default function Doctor() {
                 </section>
               ))}
             </div>
-            {certs.length > 0 && (
-              <section className="hist-group" style={{ marginTop: 8 }}>
-                <h3 className="hist-title">학회 교육과정 수료</h3>
-                <div className="certs">
-                  {certs.map((c) => (
-                    <figure key={c.title} className="cert">
-                      {c.image && <img src={c.image} alt={`${c.title} 수료패`} loading="lazy" />}
-                      <figcaption>
-                        <span className="cert-title">{c.title}</span>
-                        {(c.issuer || c.year) && (
-                          <span className="cert-issuer">{[c.issuer, c.year].filter(Boolean).join(' · ')}</span>
-                        )}
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-              </section>
-            )}
+            <section id="certs" className="hist-group" style={{ marginTop: 8 }}>
+              <h3 className="hist-title">대한이과학회 전문 과정 수료</h3>
+              <div className="certs certs-photo">
+                {certs.map((c) => (
+                  <figure key={c.title} className="cert">
+                    <img src={c.image} alt={`${c.issuer} ${c.title}패`} loading="lazy" />
+                    <figcaption>
+                      <span className="cert-title">{c.title}</span>
+                      <span className="cert-issuer">
+                        {c.issuer} · {c.year}
+                      </span>
+                      <span className="cert-en">{c.en}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </section>

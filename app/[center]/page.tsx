@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { BookingBox, FaqList, JsonLd, PageHero } from '@/components/ui'
+import { BookingBox, CertCallout, FaqList, JsonLd, PageHero } from '@/components/ui'
+import { certsFor } from '@/lib/site'
 import { centerImage, centers, conditionsOf, getCenter } from '@/lib/content'
 import { breadcrumbSchema, faqSchema } from '@/lib/schema'
 
@@ -56,6 +57,7 @@ export default async function CenterPage({ params }: Props) {
             {c.intro.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
+            <CertCallout items={certsFor(c.slug)} />
           </section>
 
           <section id="about">

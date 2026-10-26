@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import type { Center, Faq, Motif as MotifKind } from '@/lib/content'
 import { centers } from '@/lib/content'
-import { hours, hoursFootnote, site } from '@/lib/site'
+import { type Cert, hours, hoursFootnote, site } from '@/lib/site'
 import { columns } from '@/lib/columns'
 
 export function JsonLd({ data }: { data: object | object[] }) {
@@ -211,5 +211,27 @@ export function Reviewed({ date }: { date: string }) {
     <p className="reviewed">
       작성·검수 {site.doctor.name} ({site.doctor.specialty}) · 최종 검수 {date.replace(/-/g, '.')}
     </p>
+  )
+}
+
+export function CertCallout({ items }: { items: Cert[] }) {
+  if (!items.length) return null
+  return (
+    <aside className="certcall" aria-label="원장 학회 전문 과정 수료">
+      {items.map((c) => (
+        <div key={c.title} className="certcall-item">
+          <Link href="/about/doctor/#certs" className="certcall-img">
+            <img src={c.image} alt={`${c.issuer} ${c.title}패 — ${site.doctor.name} 원장`} loading="lazy" />
+          </Link>
+          <div>
+            <p className="certcall-kicker">
+              {c.issuer} · {c.year}
+            </p>
+            <p className="certcall-title">{c.title}</p>
+            <p className="certcall-text">{c.blurb}</p>
+          </div>
+        </div>
+      ))}
+    </aside>
   )
 }

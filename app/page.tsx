@@ -4,7 +4,7 @@ import NoticePopup from '@/components/NoticePopup'
 import { getHomeVideos } from '@/lib/youtube'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
-import { press, site } from '@/lib/site'
+import { certs, press, site } from '@/lib/site'
 
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
@@ -67,6 +67,36 @@ export default async function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="kos" aria-labelledby="kos-title">
+        <div className="wrap kos-inner">
+          <div className="kos-text">
+            <p className="kos-kicker">대한이과학회 전문 과정 3개 수료</p>
+            <h2 id="kos-title" className="kos-title">
+              어지럼 · 난청-보청기 · 이명,
+              <br />
+              <em>학회 전문 과정을 마친 전문의</em>가 직접 봅니다
+            </h2>
+            <p className="kos-lead">
+              대한이과학회가 이비인후과 전문의를 대상으로 운영하는 심화 교육 과정입니다. 어지럼, 난청-보청기, 이명 세 과정을 모두 수료했습니다.
+            </p>
+            <Link className="btn btn-ghost" href="/about/doctor/#certs">
+              수료 내용 자세히 보기
+            </Link>
+          </div>
+          <ul className="kos-plaques">
+            {certs.map((c) => (
+              <li key={c.title}>
+                <img src={c.image} alt={`${c.issuer} ${c.title}패 — ${site.doctor.name} 원장`} loading="lazy" />
+                <span className="kos-name">{c.title.replace(' 수료', '')}</span>
+                <span className="kos-meta">
+                  {c.year} · {c.en.split(' (')[0].replace(' on Dizziness', '')}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

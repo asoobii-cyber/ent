@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Video from '@/components/Video'
-import { BookingBox, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
+import { BookingBox, CertCallout, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
 import { REVIEWED, withIran, conditions, conditionsOf, getCenter, getCondition } from '@/lib/content'
-import { videos } from '@/lib/site'
+import { certsFor, videos } from '@/lib/site'
 import { columnsFor, plain } from '@/lib/columns'
 import { breadcrumbSchema, conditionPageSchema, faqSchema } from '@/lib/schema'
 
@@ -145,6 +145,8 @@ export default async function ConditionPage({ params }: Props) {
               <FaqList faqs={d.faqs} />
             </section>
           )}
+
+          <CertCallout items={certsFor(c.slug, d.slug)} />
 
           <BookingBox center={c} />
 

@@ -472,3 +472,39 @@ ul, ol { padding: 0; list-style: none; }
 /* 칼럼 썸네일·본문 사진: 원본 비율 유지 (잘림 방지) */
 .col-card img { height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
 .col-fig img { height: auto; }
+
+/* ── 대한이과학회 전문 과정 수료 */
+.kos { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kos-inner { display: grid; gap: 36px; padding-top: 64px; padding-bottom: 64px; align-items: center; }
+@media (min-width: 960px) { .kos-inner { grid-template-columns: 1fr 1.25fr; gap: 56px; } }
+.kos-kicker { font-size: 15px; font-weight: 700; color: var(--crimson); letter-spacing: -0.01em; }
+.kos-title { margin-top: 10px; font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.35; word-break: keep-all; }
+.kos-title em { font-style: normal; color: var(--crimson); }
+.kos-lead { margin: 14px 0 22px; color: var(--text-mute); word-break: keep-all; }
+.kos-plaques { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: end; }
+.kos-plaques li { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.kos-plaques img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; box-shadow: 0 14px 30px -18px rgba(40, 20, 10, .55); margin-bottom: 8px; }
+.kos-plaques li:first-child img { object-fit: cover; object-position: center; }
+.kos-name { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; word-break: keep-all; }
+.kos-meta { font-size: 12.5px; color: var(--text-mute); }
+@media (max-width: 520px) { .kos-name { font-size: 13.5px; } .kos-meta { font-size: 11px; } }
+
+.home-certs { display: flex; gap: 8px; margin: 18px 0 4px; text-decoration: none; color: inherit; }
+.home-certs figure { margin: 0; width: 76px; text-align: center; }
+.home-certs img { width: 76px; height: 96px; object-fit: cover; border-radius: 6px; box-shadow: 0 8px 18px -12px rgba(40,20,10,.6); }
+.home-certs figcaption { font-size: 11.5px; color: var(--text-mute); margin-top: 4px; line-height: 1.3; word-break: keep-all; }
+
+.certs-photo { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.certs-photo .cert img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; box-shadow: 0 12px 26px -16px rgba(40,20,10,.55); }
+.cert-en { display: block; font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+
+.certcall { display: grid; gap: 14px; margin-top: 28px; }
+.certcall-item { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center; padding: 18px; border: 1px solid var(--line); border-left: 4px solid var(--crimson); border-radius: var(--radius-l); background: #fff; }
+.certcall-img img { width: 96px; height: 124px; object-fit: cover; border-radius: 8px; display: block; }
+.certcall-kicker { font-size: 13px; color: var(--crimson); font-weight: 700; }
+.certcall-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; }
+.certcall-text { font-size: 15.5px; color: var(--text-mute); margin-top: 6px !important; word-break: keep-all; }
+.pop-cert { margin-top: 10px; font-size: 14.5px; padding: 10px 12px; background: var(--crimson-tint); border-radius: 8px; color: #4c1119; word-break: keep-all; }
+/* 가로형 수료패(어지럼)도 잘리지 않게 */
+.kos-plaques img, .certs-photo .cert img, .certcall-img img { object-fit: contain !important; background: #23201d; }
+.kos-plaques { align-items: start; }
