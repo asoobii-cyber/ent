@@ -508,3 +508,13 @@ ul, ol { padding: 0; list-style: none; }
 /* 가로형 수료패(어지럼)도 잘리지 않게 */
 .kos-plaques img, .certs-photo .cert img, .certcall-img img { object-fit: contain !important; background: #23201d; }
 .kos-plaques { align-items: start; }
+/* 액자 사진(2026-10-29 교체): 배경색·그림자만 가볍게 */
+.kos-plaques img, .certs-photo .cert img, .certcall-img img { background: transparent; border-radius: 4px; }
+.kos-plaques img, .certs-photo .cert img, .certcall-img img {
+  aspect-ratio: auto; box-shadow: none; object-fit: contain !important; object-position: center bottom;
+  filter: drop-shadow(0 10px 14px rgba(40, 20, 10, .32));
+}
+.kos-plaques img { height: 240px; width: 100%; }
+.certs-photo .cert img { height: 230px; width: 100%; }
+@media (max-width: 520px) { .kos-plaques img { height: 140px; } }
+.kos-plaques li:first-child img { object-position: center bottom; }
