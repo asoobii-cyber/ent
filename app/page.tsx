@@ -34,7 +34,7 @@ export default async function Home() {
             </h1>
             <p className="hero-lead">
               {site.name}은 귀·코·목 진료와 함께 어지럼증, 수면, 이명·난청을 검사로 확인하고 끝까지 관리합니다.
-              감기와 비염은 예약 없이, <span className="nowrap">월·수·금</span>은 밤 9시까지 진료합니다.
+              어지럼증과 수면 상담 초진은 예약으로 검사 시간을 따로 비워 두고 진료합니다.
             </p>
             <div className="hero-actions">
               {site.naverBooking ? (
