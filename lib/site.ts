@@ -52,6 +52,7 @@ export const site = {
           '대한이과학회 어지럼 전문가 과정 수료 (2023, KOS-Fellowship on Dizziness)',
           '대한이과학회 난청-보청기 전문과정 수료 (2025, KOS-HEC)',
           '대한이과학회 이명 전문과정 수료 (2025, KOS-TEC)',
+          '수면다원검사 정도관리위원회 수면다원검사 교육이수 (2025, 유효기간 2030년 2월)',
         ],
       },
       { title: '학회 활동', items: ['대한이비인후과학회 정회원', '대한수면연구학회 정회원', '대한평형의학회 정회원', '한국이명학회 정회원'] },
@@ -180,7 +181,19 @@ const certByCondition: Record<string, string> = {
   'hearing-aid-subsidy': '난청-보청기 전문과정 수료',
   presbycusis: '난청-보청기 전문과정 수료',
 }
+// 수면다원검사 교육이수증 (생년월일·면허번호는 가린 사진)
+export const sleepCert: Cert = {
+  title: '수면다원검사 교육이수',
+  issuer: '수면다원검사 정도관리위원회',
+  en: '제 PSG-1682 호 · 유효기간 2025.03–2030.02',
+  year: '2025',
+  image: '/images/certs/psg.webp',
+  center: 'sleep',
+  blurb: '수면다원검사 정도관리위원회의 교육과정을 이수한 이비인후과 전문의가 수면다원검사부터 결과 설명, 양압기 관리까지 직접 챙깁니다.',
+}
+
 export function certsFor(center: string, condition?: string): Cert[] {
+  if (center === 'sleep') return [sleepCert]
   if (condition && certByCondition[condition]) return certs.filter((c) => c.title === certByCondition[condition])
   if (condition && center === 'hearing') return []
   return certs.filter((c) => c.center === center)

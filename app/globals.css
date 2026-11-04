@@ -518,3 +518,7 @@ ul, ol { padding: 0; list-style: none; }
 .certs-photo .cert img { height: 230px; width: 100%; }
 @media (max-width: 520px) { .kos-plaques img { height: 140px; } }
 .kos-plaques li:first-child img { object-position: center bottom; }
+.kos-sleep { display: flex; align-items: center; gap: 14px; margin: -6px 0 24px; padding: 12px 14px; background: var(--greige); border-radius: 12px; font-size: 15px; color: var(--text-mute); word-break: keep-all; }
+.kos-sleep img { width: 44px; height: 60px; object-fit: cover; border-radius: 4px; flex: none; box-shadow: 0 4px 10px -6px rgba(40,20,10,.5); }
+.kos-sleep b { color: var(--text); }
+.certs-photo .cert:last-child img { object-fit: contain !important; }

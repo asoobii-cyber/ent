@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { JsonLd, PageHero } from '@/components/ui'
 import { breadcrumbSchema, doctorSchema } from '@/lib/schema'
-import { certs, site } from '@/lib/site'
+import { certs, site, sleepCert } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: `${site.doctor.name} 원장 소개`,
@@ -41,9 +41,9 @@ export default function Doctor() {
               ))}
             </div>
             <section id="certs" className="hist-group" style={{ marginTop: 8 }}>
-              <h3 className="hist-title">대한이과학회 전문 과정 수료</h3>
+              <h3 className="hist-title">학회 전문 과정 수료 · 교육 이수</h3>
               <div className="certs certs-photo">
-                {certs.map((c) => (
+                {[...certs, sleepCert].map((c) => (
                   <figure key={c.title} className="cert">
                     <img src={c.image} alt={`${c.issuer} ${c.title}패`} loading="lazy" />
                     <figcaption>

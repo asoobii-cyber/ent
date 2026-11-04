@@ -1,7 +1,7 @@
 // 검색엔진·AI 검색이 읽는 구조화 데이터(schema.org JSON-LD)
 import type { Center, Condition, Faq } from './content'
 import { centers } from './content'
-import { certs, hours, press, site } from './site'
+import { certs, hours, press, site, sleepCert } from './site'
 import type { Column } from './columns'
 
 const abs = (path: string) => new URL(path, site.url).toString()
@@ -55,7 +55,7 @@ export function doctorSchema() {
     hasCredential: [
       { '@type': 'EducationalOccupationalCredential', credentialCategory: '전문의 자격', name: '이비인후과 전문의', recognizedBy: { '@type': 'GovernmentOrganization', name: '보건복지부' } },
       { '@type': 'EducationalOccupationalCredential', credentialCategory: '학회 인증', name: '수면 전문의', recognizedBy: { '@type': 'MedicalOrganization', name: '대한수면연구학회' } },
-      ...certs.map((c) => ({
+      ...[...certs, sleepCert].map((c) => ({
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: '교육과정 수료',
         name: c.title,

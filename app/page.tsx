@@ -4,7 +4,7 @@ import NoticePopup from '@/components/NoticePopup'
 import { getHomeVideos } from '@/lib/youtube'
 import { FaqList, HoursTable } from '@/components/ui'
 import { centers, conditionsOf, generalFaqs } from '@/lib/content'
-import { certs, press, site } from '@/lib/site'
+import { certs, press, site, sleepCert } from '@/lib/site'
 
 const principles = [
   { t: '원인을 나눠서 봅니다', b: '같은 어지럼, 같은 기침이라도 원인이 다르면 치료가 다릅니다. 필요한 검사만 골라 원인을 좁힙니다.' },
@@ -81,6 +81,12 @@ export default async function Home() {
             </h2>
             <p className="kos-lead">
               대한이과학회가 이비인후과 전문의를 대상으로 운영하는 심화 교육 과정입니다. 어지럼, 난청-보청기, 이명 세 과정을 모두 수료했습니다.
+            </p>
+            <p className="kos-sleep">
+              <img src={sleepCert.image} alt={`${sleepCert.issuer} ${sleepCert.title}증`} loading="lazy" />
+              <span>
+                <b>수면 진료도 함께</b> · 대한수면연구학회 수면 전문의, 수면다원검사 정도관리위원회 교육이수
+              </span>
             </p>
             <Link className="btn btn-ghost" href="/about/doctor/#certs">
               수료 내용 자세히 보기
