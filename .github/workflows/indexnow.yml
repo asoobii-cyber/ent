@@ -1,0 +1,24 @@
+# 홈페이지가 바뀌면 Bing·네이버 등(IndexNow 참여 검색엔진)에 바로 알립니다.
+# ChatGPT 검색은 Bing 색인을 쓰므로 새 칼럼이 더 빨리 잡힙니다.
+name: IndexNow ping
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel deploy
+        run: sleep 180
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          HOST: www.djkoreaent.co.kr
+          KEY: d2f87732d60138701a7d29a82d30f899
+        run: |
+          urls=$(curl -fsSL "https://$HOST/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed -e 's#<loc>##' -e 's#</loc>##')
+          json=$(printf '%s\n' $urls | python3 -c "import json,sys,os; u=[l.strip() for l in sys.stdin if l.strip()]; print(json.dumps({'host':os.environ['HOST'],'key':os.environ['KEY'],'keyLocation':f\"https://{os.environ['HOST']}/{os.environ['KEY']}.txt\",'urlList':u}))")
+          echo "$json" | python3 -c "import json,sys; print(len(json.load(sys.stdin)['urlList']), 'urls')"
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$json")
+          echo "IndexNow response: $code"
+          case "$code" in 200|202) ;; *) exit 1;; esac
