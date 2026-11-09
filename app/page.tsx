@@ -67,6 +67,33 @@ export default async function Home() {
               </Link>
             ))}
           </div>
+          <div className="afterwork" aria-label="퇴근 후 진료 안내">
+            <p className="afterwork-title">
+              퇴근 후에도, 주말에도
+              <small>감기·몸살·비염은 예약 없이 오신 순서대로</small>
+            </p>
+            <ul className="afterwork-facts">
+              <li>
+                <b>밤 9시</b>
+                <span>월 · 수 · 금 진료</span>
+              </li>
+              <li>
+                <b>저녁 7시</b>
+                <span>화 · 목 진료</span>
+              </li>
+              <li>
+                <b>일 · 공휴일</b>
+                <span>오전 9시–1시 진료</span>
+              </li>
+              <li>
+                <b>1인실 수액실</b>
+                <span>네이버예약으로 자리 예약</span>
+              </li>
+            </ul>
+            <Link className="afterwork-more" href="/care/cold-iv/">
+              감기·수액 진료 안내
+            </Link>
+          </div>
         </div>
       </section>
 
