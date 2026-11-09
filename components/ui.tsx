@@ -235,3 +235,25 @@ export function CertCallout({ items }: { items: Cert[] }) {
     </aside>
   )
 }
+
+// 요약 답변: 문장마다 줄을 나누고, 진료시간 문장은 칩으로 강조 (텍스트는 그대로라 검색·AI 인용에 영향 없음)
+const HOURS_RE = /(밤 ?9시|진료시간|토요일|일요일|공휴일|점심시간)/
+export function Answer({ text }: { text: string }) {
+  const parts = text.split(/(?<=[.?!])\s+/).filter(Boolean)
+  if (parts.length < 2) return <p className="answer">{text}</p>
+  return (
+    <div className="answer answer-lines">
+      {parts.map((t, i) =>
+        HOURS_RE.test(t) && i > 0 ? (
+          <p key={i} className="answer-hours">
+            {t}
+          </p>
+        ) : (
+          <p key={i} className={i === 0 ? 'answer-lead' : undefined}>
+            {t}
+          </p>
+        ),
+      )}
+    </div>
+  )
+}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Video from '@/components/Video'
-import { BookingBox, CertCallout, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
+import { Answer, BookingBox, CertCallout, FaqList, JsonLd, PageHero, Reviewed } from '@/components/ui'
 import { REVIEWED, withIran, conditions, conditionsOf, getCenter, getCondition } from '@/lib/content'
 import { certsFor, videos } from '@/lib/site'
 import { columnsFor, plain } from '@/lib/columns'
@@ -67,7 +67,7 @@ export default async function ConditionPage({ params }: Props) {
         <article className="body">
           <section id="what">
             <h2>{withIran(d.name)}</h2>
-            <p className="answer">{d.summary}</p>
+            <Answer text={d.summary} />
             <div style={{ marginTop: 22 }}>
               {d.about.map((p, i) => (
                 <p key={i}>{p}</p>

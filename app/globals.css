@@ -537,3 +537,11 @@ ul, ol { padding: 0; list-style: none; }
 .kos-sleep img { width: 44px; height: 60px; object-fit: cover; border-radius: 4px; flex: none; box-shadow: 0 4px 10px -6px rgba(40,20,10,.5); }
 .kos-sleep b { color: var(--text); }
 .certs-photo .cert:last-child img { object-fit: contain !important; }
+
+/* 요약 답변 가독성: 문장 단위 줄바꿈 */
+.answer-lines { display: grid; gap: 10px; }
+.answer-lines p { margin: 0 !important; }
+.answer-lead { font-weight: 600; color: var(--text); }
+.answer-hours { justify-self: start; font-size: 16px; font-weight: 600; color: var(--crimson); background: #fff; border: 1px solid rgba(124,10,27,.18); padding: 6px 14px; border-radius: 999px; line-height: 1.5; }
+@media (max-width: 600px) { .answer { font-size: 17.5px; padding: 20px 20px; } }
+.body p { max-width: 40em; }
