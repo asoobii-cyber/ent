@@ -50,6 +50,7 @@ export function doctorSchema() {
     medicalSpecialty: 'https://schema.org/Otolaryngologic',
     image: abs(site.doctor.photo),
     worksFor: { '@id': clinicId },
+    affiliation: { '@type': 'CollegeOrUniversity', name: '고려대학교 의과대학', description: '외래교수 (2026.5~2028.4)' },
     alumniOf: site.doctor.alumniOf.map((n) => ({ '@type': 'CollegeOrUniversity', name: n })),
     memberOf: site.doctor.memberOf.map((n) => ({ '@type': 'MedicalOrganization', name: n })),
     hasCredential: [
