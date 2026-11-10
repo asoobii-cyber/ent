@@ -108,6 +108,12 @@ export const hoursFootnote = '접수 마감 시간과 명절 단축진료는 공
 // 원장 출연 영상 (출연 채널에서 사용 허락 받음). condition은 함께 보여줄 질환 페이지 slug.
 export const videos = [
   {
+    id: 'e4WK_HEEmsY',
+    title: '돌발성 난청 골든타임과 스테로이드·고압산소 치료법',
+    channel: '건강의학전문채널 하이닥',
+    condition: 'sudden-hearing-loss',
+  },
+  {
     id: 'ky_IFGjxx4o',
     title: '자려고 마신 술 한잔, 수면무호흡증을 키우는 이유',
     channel: '건강의학전문채널 하이닥',
@@ -125,6 +131,13 @@ export const videos = [
 // 비어 있으면 홈의 '언론 보도' 칸은 자동으로 숨겨집니다.
 export type Press = { title: string; outlet: string; date: string; url: string; type: 'article' | 'video' }
 export const press: Press[] = [
+  {
+    title: '“3일 안에 병원 가야 합니다”… 돌발성 난청 골든타임과 스테로이드·고압산소 치료법',
+    outlet: '하이닥',
+    date: '2026.11',
+    url: 'https://news.hidoc.co.kr/news/articleView.html?idxno=69611',
+    type: 'article',
+  },
   {
     title: '자려고 마신 술 한잔, 수면무호흡증을 키우는 이유',
     outlet: '하이닥',
