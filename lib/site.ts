@@ -139,6 +139,13 @@ export const press: Press[] = [
     type: 'article',
   },
   {
+    title: '술 마시면 꿀잠 잔다?… 숨길 좁아져 ‘수면 무호흡증’ 위험 키울 수도',
+    outlet: '하이닥',
+    date: '2026',
+    url: 'https://news.hidoc.co.kr/news/articleView.html?idxno=69355',
+    type: 'article',
+  },
+  {
     title: '자려고 마신 술 한잔, 수면무호흡증을 키우는 이유',
     outlet: '하이닥',
     date: '2026',
