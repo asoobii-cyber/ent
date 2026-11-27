@@ -19,6 +19,7 @@ export type Column = {
   summary: string // 맨 위 요약 답변 — AI 검색이 인용하기 좋게 두세 문장
   date: string // 작성일 YYYY-MM-DD
   reviewed: string // 검수일
+  disclaimer?: string // 글 끝 안내 문구. 없으면 공통 문구를 씁니다
   topic: string // 주제(질환) 이름
   center: string // 관련 센터 slug
   related: string[] // 관련 질환 slug (같은 센터)
@@ -46,6 +47,8 @@ export const columns: Column[] = [
       '감기는 보통 일주일에서 열흘 안에 좋아지고, ==2주 넘게 이어지거나 비슷한 증상이 반복되면 비염을 의심==해 볼 수 있습니다. 겨울에는 습도, 환기, 침구 관리와 식염수 사용이 도움이 되며, 코막힘 스프레이를 며칠 이상 계속 쓰는 것은 피해야 합니다. 원인은 코 내시경으로 확인하고, 코막힘과 코골이가 함께 있다면 수면도 같이 살펴보세요.',
     date: '2026-11-28',
     reviewed: '2026-11-28',
+    disclaimer:
+      '이 글은 일반적인 의학 정보이며, 코 상태와 알레르기 원인, 증상의 정도에 따라 검사와 관리 방법은 다를 수 있습니다. 정확한 진단과 치료는 진찰을 통해 결정합니다.',
     topic: '비염',
     center: 'care',
     related: ['allergic-rhinitis', 'sinusitis', 'snoring'],
@@ -162,6 +165,8 @@ export const columns: Column[] = [
       '식단과 운동을 지켜도 살이 안 빠질 때는 ==수면 부족과 수면무호흡증==도 확인해 볼 부분입니다. 잠이 모자라면 식욕이 늘고 체지방이 덜 빠지는 쪽으로 기울 수 있고, 8시간을 자도 피곤하고 코골이가 심하다면 수면다원검사로 원인을 확인할 수 있습니다. 증상과 경과에는 개인차가 있습니다.',
     date: '2026-11-21',
     reviewed: '2026-11-21',
+    disclaimer:
+      '이 글은 일반적인 의학 정보이며, 수면 상태와 체중, 동반 질환에 따라 검사와 치료 방향은 다를 수 있습니다. 정확한 진단과 치료는 진찰과 수면다원검사 결과를 통해 결정합니다.',
     topic: '수면다원검사',
     center: 'sleep',
     related: ['polysomnography', 'sleep-apnea', 'snoring', 'cpap'],
@@ -299,6 +304,8 @@ export const columns: Column[] = [
       '기립성저혈압에서 물을 충분히 마시는 것은 ==도움이 될 수 있습니다.== 다만 심장·신장 질환이 있으면 양을 의사와 정해야 하고, 천천히 일어나기, 다리 근육에 힘주기, 소량씩 나눠 먹기, 술과 더위 피하기를 함께 해야 효과가 큽니다. 증상이 계속되면 기립경사검사와 자율신경검사로 원인을 확인하세요.',
     date: '2026-10-29',
     reviewed: '2026-10-29',
+    disclaimer:
+      '이 글은 일반적인 의학 정보이며, 혈압 변화와 복용 중인 약, 기저질환에 따라 관리 방법은 다를 수 있습니다. 정확한 진단과 치료는 진찰을 통해 결정합니다.',
     topic: '기립성저혈압',
     center: 'dizziness',
     related: ['orthostatic', 'bppv', 'vestibular-neuritis', 'meniere'],
@@ -444,6 +451,8 @@ export const columns: Column[] = [
       '양압기 적응이 어려운 이유는 대부분 ==마스크, 입 벌어짐, 코막힘, 압력 설정==처럼 점검할 수 있는 원인입니다. 혼자 압력을 바꾸지 말고, 기기에 저장된 사용 기록을 함께 보며 병원에서 조정하는 것이 가장 빠릅니다. 건강보험 대여는 처음 90일 안에 순응 평가가 있으니 불편하면 초기에 상담하세요.',
     date: '2026-10-26',
     reviewed: '2026-10-26',
+    disclaimer:
+      '이 글은 일반적인 의학 정보이며, 얼굴 모양과 코 상태, 수면무호흡 정도에 따라 양압기 적응 방법은 다를 수 있습니다. 압력과 장비 조정은 반드시 처방한 병원과 상의하세요.',
     topic: '양압기 적응',
     center: 'sleep',
     related: ['cpap', 'sleep-apnea', 'polysomnography', 'snoring'],
@@ -590,6 +599,8 @@ export const columns: Column[] = [
       '이어폰을 큰 소리로 오래 들으면 달팽이관의 청각세포가 손상되어 소음성 난청이 생길 수 있고, ==한 번 손상된 청각세포는 회복이 어렵습니다.== 볼륨은 **최대 음량의 60% 이하, 한 번에 60분 안팎**으로 들으세요. 이명, 자꾸 되묻기, 볼륨이 점점 커지는 변화가 있다면 정밀 청력검사로 확인하는 것이 좋습니다.',
     date: '2026-10-23',
     reviewed: '2026-10-23',
+    disclaimer:
+      '이 글은 일반적인 의학 정보이며, 청력 상태와 소음 노출 정도에 따라 증상과 검사 결과는 다를 수 있습니다. 정확한 진단과 치료는 진찰을 통해 결정합니다.',
     topic: '소음성 난청',
     center: 'hearing',
     related: ['tinnitus', 'sudden-hearing-loss', 'presbycusis', 'hearing-aids'],

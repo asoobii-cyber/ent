@@ -188,7 +188,7 @@ export default async function ColumnPage({ params }: Props) {
           <p className="reviewed">
             작성·검수 {site.doctor.name} ({site.doctor.specialty}) · 작성 {dot(col.date)} · 최종 검수 {dot(col.reviewed)}
             <br />
-            이 글은 일반적인 의학 정보이며, 청력 상태와 소음 노출 정도에 따라 증상과 검사 결과는 다를 수 있습니다. 정확한 진단과 치료는 진찰을 통해 결정합니다.
+            {col.disclaimer ?? '이 글은 일반적인 의학 정보이며, 증상과 검사 결과는 사람마다 다를 수 있습니다. 정확한 진단과 치료는 진찰을 통해 결정합니다.'}
           </p>
         </article>
       </div>
